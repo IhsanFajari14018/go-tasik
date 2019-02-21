@@ -23,7 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/go-tutorial/';
+$config['base_url'] = 'http://localhost/go-tasik/';
+//$config['base_url'] = 'http://'.$_SERVER['SERVER_NAME'].'/applicatio'
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,7 @@ $config['base_url'] = 'http://localhost/go-tutorial/';
 |
 */
 $config['index_page'] = 'index.php';
+//$config['index_page'] = "";
 
 /*
 |--------------------------------------------------------------------------

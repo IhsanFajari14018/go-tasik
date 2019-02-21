@@ -106,19 +106,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
 			<ul class="navbar-nav">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				<li class="nav-item">
+					<a class="nav-link" href="<?php echo site_url("home") ?>">Home <span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item dropdown">
+				<li class="nav-item dropdown active">
 					<a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false">Pariwisata</a>
+					aria-haspopup="true" aria-expanded="false">Wisata Kuliner</a>
 					<!--<style>
 					.dropdown:hover>.dropdown-menu {
 						display: block;
 					}
 				</style>-->
 					<div class="dropdown-menu" aria-labelledby="dropdown08">
-						<a class="dropdown-item" href="<?php echo site_url("wisata_kuliner"); ?>">Wisata Kuliner</a>
+						<a class="dropdown-item" href="#">Wisata Kuliner</a>
 						<a class="dropdown-item" href="<?php echo site_url("objek_wisata"); ?>">Objek Wisata</a>
 					</div>
 				</li>

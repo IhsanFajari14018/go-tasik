@@ -106,8 +106,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
 			<ul class="navbar-nav">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				<li class="nav-item">
+					<a class="nav-link" href="<?php echo site_url("home")?>">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown"
@@ -123,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="<?php echo site_url("about"); ?>">About</a>
+					<a class="nav-link active" href="#">About</a>
 				</li>
 			</ul>
 		</div>
