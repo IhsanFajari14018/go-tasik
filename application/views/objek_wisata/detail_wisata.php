@@ -135,7 +135,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown08">
 						<a class="dropdown-item" href="<?php echo site_url("wisata_kuliner"); ?>">Wisata Kuliner</a>
-						<a class="dropdown-item" href="#">Objek Wisata</a>
+						<a class="dropdown-item" href="<?php echo site_url("objek_wisata"); ?>">Objek Wisata</a>
 					</div>
 				</li>
 				<li class="nav-item">
@@ -173,11 +173,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</nav>
 
 	<main role="main">
-
 		<!--LIST OBJEK WISATA -->
 		<div class="album py-5">
 			<div class="container">
-
 				<!-- Description -->
 				<div class="row featurette">
 					<div class="col-md-7">
@@ -194,14 +192,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</p>
 					</div>
 					<div class="col-md-5">
-						<img src="https://lh5.googleusercontent.com/p/AF1QipMlZx50XTvsdLrd7vRqjUqQI_G_kBkmDRWMH_e7=w408-h272-k-no" class="img-fluid" alt="-">
+						<img src="https://lh5.googleusercontent.com/p/AF1QipMlZx50XTvsdLrd7vRqjUqQI_G_kBkmDRWMH_e7=w408-h272-k-no" class="img-fluid rounded" alt="-">
 					</div>
 				</div>
 				<!-- END OF Description -->
 
 				<!-- Pricing -->
 				<div class="row featurette mt-2">
-					<div class="col-md-3">
+					<div class="col-md-5">
+						<h5 class="featurette-heading"><span class="text-muted">Lokasi</span></h5>
+						<a href="https://goo.gl/maps/MeuNXhyqgFN2" target="_blank"><i class="fa fa-map-marker"></i> Linggawangi, Leuwisari, Tasikmalaya, Jawa Barat</a>
+					</div>
+					<div class="col-md-4">
 						<h5 class="featurette-heading"><span class="text-muted">Harga</span></h5>
 						<p class="lead mb-0">Weekdays: Rp 5000,- /org</p>
 						<p class="lead mb-0">Weekends: Rp 7000,- /org</p>
@@ -209,10 +211,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="col-md-3">
 						<h5 class="featurette-heading"><span class="text-muted">Rating</span></h5>
 						<p class="lead"><span class="text-warning font-weight-bold">4.3</span></p>
-					</div>
-					<div class="col-md-6">
-						<h5 class="featurette-heading"><span class="text-muted">Lokasi</span></h5>
-						<a href="https://goo.gl/maps/MeuNXhyqgFN2" target="_blank"><i class="fa fa-map-marker"></i> Linggawangi, Leuwisari, Tasikmalaya, Jawa Barat</a>
 					</div>
 				</div>
 				<!-- END OF Pricing -->
@@ -225,7 +223,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<h2 class="featurette-heading">
 						Review
 					</h2>
-
 					<div class="row">
 						<div class="col">
 							<p class="featurette-heading mb-0"><span class="text-muted">Oleh </span>Ihsan Fajari</p>
@@ -261,9 +258,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<!-- END OF REVIEW -->
 
 				<!-- ISI KOMENTAR -->
-				<h2 class="featurette-heading">
-					FORM ISI KOMENTAR
-				</h2>
+				<!-- ISI KOMENTAR -->
+        <div class="mt-5 mb-3">
+          <h2 class="featurette-heading">
+            Form untuk mengis ulasan
+          </h2>
+        </div>
+
+        <form>
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault01">Nama</label>
+              <input type="text" class="form-control" id="validationDefault01" placeholder="Masukan namamu ..." value="" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault01">Rating</label>
+              <select class="custom-select" required>
+                <option value="">Beri rating 1-5</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="2">4</option>
+                <option value="3">5</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="exampleFormControlTextarea1">Masukan Ulasanmu</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Masukan ulasanmu ..." required></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+              <label class="form-check-label" for="invalidCheck2">
+                Agree to terms and conditions
+              </label>
+            </div>
+          </div>
+          <button class="btn btn-success" type="submit">Kirim Ulasan</button>
+        </form>
+        <!-- END OF ISI KOMENTAR -->
 				<!-- END OF ISI KOMENTAR -->
 
 				<!-- Recomendation Section -->

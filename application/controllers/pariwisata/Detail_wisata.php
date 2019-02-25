@@ -20,7 +20,7 @@ class Detail_wisata extends CI_Controller {
 	*/
 	public function index()	{
 		$data = array(
-			'title' => 'Objek Wisata',
+			'title' => 'Objek Wisata - Lembah Gunung Galunggung',
 			'heading' => 'My Heading',
 			'message' => 'My Message'
 		);

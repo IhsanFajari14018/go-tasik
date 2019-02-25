@@ -99,7 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -107,16 +107,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="<?php echo site_url("home")?>">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="<?php echo site_url("home") ?>">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false">Pariwisata</a>
-					<!--<style>
-					.dropdown:hover>.dropdown-menu {
-						display: block;
-					}
-				</style>-->
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Pariwisata
+					</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown08">
 						<a class="dropdown-item" href="<?php echo site_url("wisata_kuliner"); ?>">Wisata Kuliner</a>
 						<a class="dropdown-item" href="<?php echo site_url("objek_wisata"); ?>">Objek Wisata</a>
@@ -127,175 +123,118 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</li>
 			</ul>
 		</div>
+
+		<!-- DROPDOWN NEAR SEARCH -->
+		<ul class="navbar-nav">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Kategori
+				</a>
+				<div class="dropdown-menu" aria-labelledby="dropdown08">
+					<a class="dropdown-item" href="#">Air Terjun</a>
+					<a class="dropdown-item" href="#">Alam</a>
+					<a class="dropdown-item" href="#">Danau</a>
+					<a class="dropdown-item" href="#">Gunung</a>
+					<a class="dropdown-item" href="#">Kolam Renang</a>
+					<a class="dropdown-item" href="#">Pantai</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Bubur</a>
+					<a class="dropdown-item" href="#">Kupat Tahu</a>
+					<a class="dropdown-item" href="#">Mie Bakso</a>
+					<a class="dropdown-item" href="#">Soto</a>
+					<a class="dropdown-item" href="#">Lainnya</a>
+				</div>
+			</li>
+		</ul>
+		<!-- END OF DROPDOWN NEAR SEARCH -->
+
+		<form class="input-group mt-3 mr-1" style="width: 55%">
+			<input type="text" class="form-control" placeholder="Cari objek wisata">
+			<div class="input-group-append">
+				<button class="btn btn-secondary" type="button">
+					<i class="fa fa-search"></i>
+				</button>
+			</div>
+		</form>
 	</nav>
 
 	<main role="main">
+
 		<section class="jumbotron text-center">
 			<div class="container">
-				<h1 class="jumbotron-heading">Album example</h1>
-				<p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-				<p>
-					<a href="#" class="btn btn-primary my-2">Main call to action</a>
-					<a href="#" class="btn btn-secondary my-2">Secondary action</a>
+				<h1 class="jumbotron-heading">Go-Tasik</h1>
+				<p class="lead text-muted">
+					Go-Tasik is an information recomendation system in tourism around Tasikmalaya.
+				</p>
+				<hr>
+				<p class="lead text-muted">
+					Version 0.3.1
 				</p>
 			</div>
 		</section>
 
-		<!-- SEARCH IN THE CENTER -->
 		<div class="container">
 			<div class="row">
-				<div class="col d-flex justify-content-center">
-					<form class="form-inline my-2 my-lg-0">
-						<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-						<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-					</form>
+				<div class="col-md-2">
+					<!-- PUSH CONTENT TO MIDDLE A BIT -->
 				</div>
-			</div>
-		</div>
-
-		<div class="album py-5">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
+				<div class="col-md-3">
+					<img src="https://media.licdn.com/dms/image/C5103AQG61uR6e7OkTw/profile-displayphoto-shrink_200_200/0?e=1556755200&v=beta&t=P4gU6UhfQLOt3atflfv89K5pxlemYqTaScCwBio3Uxw" class="img-fluid rounded-circle">
 
 				</div>
-			</div>
-		</div>
-
-	</main>
-
-
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<p class="float-right">
-					<a href="#">Back to top</a>
-				</p>
+				<div class="col-md-7">
+					<h2 class="mt-3">Ihsan Fajari</h2>
+					<p>
+						Memiliki visi untuk membuat Tasikmalaya lebih maju, dimulai dari sisi digital. Sistem informasi rekomendasi pariwisata ini diharapkan
+						dapat memudahkan pencarian dan perekomendasian dalam pariwisata di sekitar Tasikmalaya.
+					</p>
+					<p><a class="btn btn-secondary" href="https://linkedin.com/in/ihsanfajari/" target="_blank" role="button">More about me &raquo;</a></p>
+				</div>
 			</div>
 		</div>
 	</div>
 
+</main>
 
-	<footer class="text-muted bg-dark my-0 ">
-		<div class="container">
-			<div class="row mb-2">
-				<div class="col-md-4 text-light mt-3">
-					<p>ABOUT THIS</p>
-					<p>Go-Tasik is an information recomendation system in tourism.</p>
-				</div>
-				<div class="col-md-3 text-light mt-3">
-				</div>
-				<div class="col-md-5 text-light mt-3">
-					<p>CONTACT US</p>
-					<div class="row"><div class="col">
-						<i class="fa fa-map-marker"></i> Perum Cisalak Jl. Raya Nusa Indah Blok 4 No.11
-					</div></div>
-					<div class="row"><div class="col">
-						<i class="fa fa-phone"></i> <a href="whatsapp://send?text=Hello%2C%20World!" class="text-light">0822-4027-0827</a>
-					</div></div>
-					<div class="row"><div class="col">
-						<i class="fa fa-envelope-o"></i> <a href="mailto:ihsan.fajari@gmail.com" class="text-light">ihsan.fajari@gmail.com</a>
-					</div></div>
-				</div>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<p class="float-right">
+			</p>
+		</div>
+	</div>
+</div>
+
+<footer class="text-muted bg-dark my-0 ">
+	<div class="container">
+		<div class="row mb-2">
+			<div class="col-md-4 text-light mt-3">
+				<p>ABOUT THIS</p>
+				<p>Go-Tasik is an information recomendation system in tourism.</p>
 			</div>
-
-			<div class="row">
-				<div class="col-md-12 text-center my-1 mt-4">
-					<p>Copyright &copy; 2019 Go-Tasik</p>
-				</div>
+			<div class="col-md-3 text-light mt-3">
+			</div>
+			<div class="col-md-5 text-light mt-3">
+				<p>CONTACT US</p>
+				<div class="row"><div class="col">
+					<i class="fa fa-map-marker"></i> Perum Cisalak Jl. Raya Nusa Indah Blok 4 No.11
+				</div></div>
+				<div class="row"><div class="col">
+					<i class="fa fa-phone"></i> <a href="whatsapp://send?text=Hello%2C%20World!" class="text-light">0822-4027-0827</a>
+				</div></div>
+				<div class="row"><div class="col">
+					<i class="fa fa-envelope-o"></i> <a href="mailto:ihsan.fajari@gmail.com" class="text-light">ihsan.fajari@gmail.com</a>
+				</div></div>
 			</div>
 		</div>
-	</footer>
+
+		<div class="row">
+			<div class="col-md-12 text-center my-1 mt-4">
+				<p>Copyright &copy; 2019 Go-Tasik</p>
+			</div>
+		</div>
+	</div>
+</footer>
 
 </body>
 </html>

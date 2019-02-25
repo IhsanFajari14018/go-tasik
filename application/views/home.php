@@ -106,12 +106,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
 			<ul class="navbar-nav">
-				<li class="nav-item">
+				<li class="nav-item active">
 					<a class="nav-link" href="<?php echo site_url("home") ?>">Home <span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item dropdown active">
+				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Objek Wisata
+						Pariwisata
 					</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown08">
 						<a class="dropdown-item" href="<?php echo site_url("wisata_kuliner"); ?>">Wisata Kuliner</a>
@@ -137,6 +137,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<a class="dropdown-item" href="#">Gunung</a>
 					<a class="dropdown-item" href="#">Kolam Renang</a>
 					<a class="dropdown-item" href="#">Pantai</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Bubur</a>
+					<a class="dropdown-item" href="#">Kupat Tahu</a>
+					<a class="dropdown-item" href="#">Mie Bakso</a>
+					<a class="dropdown-item" href="#">Soto</a>
+					<a class="dropdown-item" href="#">Lainnya</a>
 				</div>
 			</li>
 		</ul>
@@ -167,7 +173,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="container">
 						<div class="carousel-caption text-left">
 							<h1 class="text-light">Pantai Karang Tawulan</h1>
-							<p class="text-light">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+							<p class="text-light">
+								 Pantai ini mempunyai karang-karang yang mirip dengan Pantai Lot Bali.
+								 Hamparan karang berumput di tengah pantai di antara gelombang laut biru merupakan pesona indah bagi pantai ini.
+							</p>
 						</div>
 					</div>
 				</div>
@@ -175,9 +184,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!-- <img src="<?php //echo base_url('img/IMG20190116110221.jpg'); ?>" class="d-block w-100" alt="Curious Rio 2" height="500"> -->
 					<img src="<?php echo base_url();?>img/IMG20190116110221.jpg" class="d-block w-100" alt="Curug Citoe" height="500"/>
 					<div class="container">
-						<div class="carousel-caption text-left">
+						<div class="carousel-caption text-right">
 							<h1>Curug Citoe</h1>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+							<p class="text-light">
+								Aliran air Citoe ini jatuh membentuk curug yang ketinggiannya sekitar 2 meter dengan
+								kedalaman sungai hingga 7 meter.
+							</p>
 						</div>
 					</div>
 				</div>
@@ -186,7 +198,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="container">
 						<div class="carousel-caption text-left">
 							<h1>Pantai Madasari</h1>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+							<p class="text-light">
+								Pantai ini menyajikan panorama alam yang spesifik dengan pulau-pulau
+								kecilnya berpadu dengan hijaunya datan masawah, dan dihiasi pula oleh
+								atu-batu karang yang unik , dengan pantainya yang landai.
+							 </p>
 						</div>
 					</div>
 				</div>
@@ -248,7 +264,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<!-- 2 -->
 			<div class="col-md-4">
 				<div class="card mb-4 shadow-sm">
-					<a href="#">
+					<a href="<?php echo site_url('pariwisata/detail_kuliner'); ?>">
 						<img src="<?php echo base_url('img/13410202016-0911-09180400780x390.JPG'); ?>" class="img-fluid" alt="">
 					</a>
 					<div class="card-body">
