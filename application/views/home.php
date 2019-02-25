@@ -99,50 +99,105 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
 		<div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
 			<ul class="navbar-nav">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				<li class="nav-item">
+					<a class="nav-link" href="<?php echo site_url("home") ?>">Home <span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false">Pariwisata</a>
-					<!--<style>
-					.dropdown:hover>.dropdown-menu {
-					display: block;
-				}
-			</style>-->
-			<div class="dropdown-menu" aria-labelledby="dropdown08">
-				<a class="dropdown-item" href="<?php echo site_url("wisata_kuliner"); ?>">Wisata Kuliner</a>
-				<a class="dropdown-item" href="<?php echo site_url("objek_wisata"); ?>">Objek Wisata</a>
-			</div>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="<?php echo site_url("about"); ?>">About</a>
-		</li>
-	</ul>
-</div>
-</nav>
-
-<main role="main">
-	<section class="jumbotron text-center">
-		<div class="container">
-			<h1 class="jumbotron-heading">Album example</h1>
-			<p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-			<p>
-				<a href="#" class="btn btn-primary my-2">Main call to action</a>
-				<a href="#" class="btn btn-secondary my-2">Secondary action</a>
-			</p>
+				<li class="nav-item dropdown active">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Objek Wisata
+					</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown08">
+						<a class="dropdown-item" href="<?php echo site_url("wisata_kuliner"); ?>">Wisata Kuliner</a>
+						<a class="dropdown-item" href="<?php echo site_url("objek_wisata"); ?>">Objek Wisata</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="<?php echo site_url("about"); ?>">About</a>
+				</li>
+			</ul>
 		</div>
-	</section>
+
+		<!-- DROPDOWN NEAR SEARCH -->
+		<ul class="navbar-nav">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Kategori
+				</a>
+				<div class="dropdown-menu" aria-labelledby="dropdown08">
+					<a class="dropdown-item" href="#">Air Terjun</a>
+					<a class="dropdown-item" href="#">Alam</a>
+					<a class="dropdown-item" href="#">Danau</a>
+					<a class="dropdown-item" href="#">Gunung</a>
+					<a class="dropdown-item" href="#">Kolam Renang</a>
+					<a class="dropdown-item" href="#">Pantai</a>
+				</div>
+			</li>
+		</ul>
+		<!-- END OF DROPDOWN NEAR SEARCH -->
+
+		<form class="input-group mt-3 mr-1" style="width: 55%">
+			<input type="text" class="form-control" placeholder="Cari objek wisata">
+			<div class="input-group-append">
+				<button class="btn btn-secondary" type="button">
+					<i class="fa fa-search"></i>
+				</button>
+			</div>
+		</form>
+	</nav>
+
+<!-- Main Section -->
+<main role="main">
+	<!-- CAROUSEL -->
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://3.bp.blogspot.com/-PW6kjGvgTXo/WOdoZ4qwUbI/AAAAAAAAAsk/VnoRkt1x88su4IAm-h42dJZfSSquiXtQgCLcB/s1600/20170327_055152.jpg" class="d-block w-100" alt="Curious Rio 1" height="500">
+          <div class="container">
+            <div class="carousel-caption text-left">
+              <h1 class="text-light">Example headline.</h1>
+              <p class="text-light">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="<img src="<?php echo base_url('img/logo.png'); ?>" />" class="d-block w-100" alt="Curious Rio 2" height="500">
+          <div class="container">
+            <div class="carousel-caption text-left">
+              <h1>Example headline.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/curious_rio_3.JPG" class="d-block w-100" alt="Curious Rio 3" height="500">
+          <div class="container">
+            <div class="carousel-caption text-left">
+              <h1>Example headline.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  <!-- END OF CAROUSEL -->
 
 	<!-- SEARCH IN THE CENTER -->
-	<div class="container">
+	<!-- <div class="container">
 		<div class="row">
 			<div class="col d-flex justify-content-center">
 				<form class="form-inline my-2 my-lg-0">
@@ -151,27 +206,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</form>
 			</div>
 		</div>
-	</div>
-
-	<!-- <div class="container">
-		<div class="row featurette">
-			<div class="col-md-7">
-				<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-				<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-			</div>
-			<div class="col-md-5">
-				<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-			</div>
-		</div>
 	</div> -->
 
-	<div class="album py-5">
+	<div class="album mt-1">
 		<div class="container">
+			<!-- Recomendation Section -->
 			<div class="row">
+				<div class="col-md-12 mt-5">
+					<h3 class="text-center mb-4">Rekomendasi Pariwisata</h3>
+				</div>
 				<div class="col-md-4">
 					<div class="card mb-4 shadow-sm">
-						<img src="//placehold.it/200" alt="">
+						<a href="#">
+							<img src="https://3.bp.blogspot.com/-cgo2nXrKm20/V1tBZwmAAnI/AAAAAAAACkI/amCb3eV6TZY8lJvxvHnqokKcs4I9ogJ0gCLcB/s320/Tempat%2BPenjual%2BBaso%2BEnak%2Bdi%2BTasikmalaya.jpg" class="img-fluid" alt="" style="height:191.797px; width:100%;">
+						</a>
 						<div class="card-body">
+							<h4 class="card-title">Mie Bakso Laksana</h4>
 							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="btn-group">
@@ -185,8 +235,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<div class="col-md-4">
 					<div class="card mb-4 shadow-sm">
-						<img src="//placehold.it/200" alt="">
+						<a href="#">
+							<img src="https://c1.staticflickr.com/9/8516/8574339730_2330e4a7bc_b.jpg" class="img-fluid" alt="">
+						</a>
 						<div class="card-body">
+							<h4 class="card-title">Kampung Naga</h4>
 							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="btn-group">
@@ -200,9 +253,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<div class="col-md-4">
 					<div class="card mb-4 shadow-sm">
-						<img src="//placehold.it/200" alt="">
+						<a href="#">
+							<img src="https://mytrip123.com/wp-content/uploads/2018/11/pantai-cipatujah.jpg" class="img-fluid" alt="">
+						</a>
 						<div class="card-body">
-							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+							<h4 class="card-title">Pantai Cipatujah</h4>
+							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </p>
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="btn-group">
 									<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -213,52 +269,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 					</div>
 				</div>
-
-				<div class="col-md-4">
-					<div class="card mb-4 shadow-sm">
-						<img src="//placehold.it/200" alt="">
-						<div class="card-body">
-							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-							<div class="d-flex justify-content-between align-items-center">
-								<div class="btn-group">
-									<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-									<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-								</div>
-								<small class="text-muted">9 mins</small>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card mb-4 shadow-sm">
-						<img src="//placehold.it/200" alt="">
-						<div class="card-body">
-							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-							<div class="d-flex justify-content-between align-items-center">
-								<div class="btn-group">
-									<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-									<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-								</div>
-								<small class="text-muted">9 mins</small>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card mb-4 shadow-sm">
-						<img src="//placehold.it/200" alt="">
-						<div class="card-body">
-							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-							<div class="d-flex justify-content-between align-items-center">
-								<div class="btn-group">
-									<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-									<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-								</div>
-								<small class="text-muted">9 mins</small>
-							</div>
-						</div>
-					</div>
-				</div>
+			<!-- END Recomendation Section -->
 
 			</div>
 		</div>
