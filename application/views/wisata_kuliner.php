@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<style>
 	.container {
-		max-width: 960px;
+		/* max-width: 960px; */
 	}
 
 	/*
@@ -158,7 +158,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row">
 					<div class="col-md-4">
 						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
+							<img src="//placehold.it/200" alt="">
 							<div class="card-body">
 								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 								<div class="d-flex justify-content-between align-items-center">
@@ -173,7 +173,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					<div class="col-md-4">
 						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
+							<img src="//placehold.it/200" alt="">
 							<div class="card-body">
 								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 								<div class="d-flex justify-content-between align-items-center">
@@ -188,7 +188,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					<div class="col-md-4">
 						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
+							<img src="//placehold.it/200" alt="">
 							<div class="card-body">
 								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 								<div class="d-flex justify-content-between align-items-center">
@@ -204,7 +204,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					<div class="col-md-4">
 						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
+							<img src="//placehold.it/200" alt="">
 							<div class="card-body">
 								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 								<div class="d-flex justify-content-between align-items-center">
@@ -219,7 +219,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					<div class="col-md-4">
 						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
+							<img src="//placehold.it/200" alt="">
 							<div class="card-body">
 								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 								<div class="d-flex justify-content-between align-items-center">
@@ -234,7 +234,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					<div class="col-md-4">
 						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
+							<img src="//placehold.it/200" alt="">
 							<div class="card-body">
 								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 								<div class="d-flex justify-content-between align-items-center">

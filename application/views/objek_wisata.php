@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<style>
 	.container {
-		max-width: 960px;
+		/* max-width: 960px; */
 	}
 
 	/*
@@ -114,188 +114,261 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					aria-haspopup="true" aria-expanded="false">Objek Wisata</a>
 					<!--<style>
 					.dropdown:hover>.dropdown-menu {
-						display: block;
-					}
-				</style>-->
-					<div class="dropdown-menu" aria-labelledby="dropdown08">
-						<a class="dropdown-item" href="<?php echo site_url("wisata_kuliner"); ?>">Wisata Kuliner</a>
-						<a class="dropdown-item" href="#">Objek Wisata</a>
-					</div>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="<?php echo site_url("about"); ?>">About</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<main role="main">
-		<section class="jumbotron text-center">
-			<div class="container">
-				<h1 class="jumbotron-heading">Album example</h1>
-				<p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-				<p>
-					<a href="#" class="btn btn-primary my-2">Main call to action</a>
-					<a href="#" class="btn btn-secondary my-2">Secondary action</a>
-				</p>
+					display: block;
+				}
+			</style>-->
+			<div class="dropdown-menu" aria-labelledby="dropdown08">
+				<a class="dropdown-item" href="<?php echo site_url("wisata_kuliner"); ?>">Wisata Kuliner</a>
+				<a class="dropdown-item" href="#">Objek Wisata</a>
 			</div>
-		</section>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="<?php echo site_url("about"); ?>">About</a>
+		</li>
+	</ul>
+</div>
+</nav>
 
-		<!-- SEARCH IN THE CENTER -->
-		<div class="container">
-			<div class="row">
-				<div class="col d-flex justify-content-center">
-					<form class="form-inline my-2 my-lg-0">
-						<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-						<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-					</form>
-				</div>
-			</div>
-		</div>
+<main role="main">
 
-		<div class="album py-5">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							{% include icons/placeholder.svg width="100%" height="225" background="#55595c" color="#eceeef" class="card-img-top" text="Thumbnail" %}
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-	</main>
-
-
-	<div class="container">
+	<!-- SEARCH & FILTER -->
+	<div class="container mt-5">
 		<div class="row">
-			<div class="col">
-				<p class="float-right">
-					<a href="#">Back to top</a>
-				</p>
+			<div class="col-md-2 d-flex justify-content-center">
+
+				<div class="dropdown">
+					<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+						Kategori
+					</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#">Air Terjun</a>
+						<a class="dropdown-item" href="#">Alam</a>
+						<a class="dropdown-item" href="#">Danau</a>
+						<a class="dropdown-item" href="#">Gunung</a>
+						<a class="dropdown-item" href="#">Kolam Renang</a>
+						<a class="dropdown-item" href="#">Pantai</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-10 d-flex justify-content-center">
+				<form class="input-group">
+					<input type="text" class="form-control" placeholder="Cari objek wisata">
+					<div class="input-group-append">
+						<button class="btn btn-secondary" type="button">
+							<i class="fa fa-search"></i>
+						</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
+	<!-- END OF SEARCH & FILTER -->
 
-
-	<footer class="text-muted bg-dark my-0 ">
+	<!--LIST OBJEK WISATA -->
+	<div class="album py-5">
 		<div class="container">
-			<div class="row mb-2">
-				<div class="col-md-4 text-light mt-3">
-					<p>ABOUT THIS</p>
-					<p>Go-Tasik is an information recomendation system in tourism.</p>
-				</div>
-				<div class="col-md-3 text-light mt-3">
-				</div>
-				<div class="col-md-5 text-light mt-3">
-					<p>CONTACT US</p>
-					<div class="row"><div class="col">
-						<i class="fa fa-map-marker"></i> Perum Cisalak Jl. Raya Nusa Indah Blok 4 No.11
-					</div></div>
-					<div class="row"><div class="col">
-						<i class="fa fa-phone"></i> <a href="whatsapp://send?text=Hello%2C%20World!" class="text-light">0822-4027-0827</a>
-					</div></div>
-					<div class="row"><div class="col">
-						<i class="fa fa-envelope-o"></i> <a href="mailto:ihsan.fajari@gmail.com" class="text-light">ihsan.fajari@gmail.com</a>
-					</div></div>
-				</div>
-			</div>
-
 			<div class="row">
-				<div class="col-md-12 text-center my-1 mt-4">
-					<p>Copyright &copy; 2019 Go-Tasik</p>
+
+				<!-- A card section -->
+				<div class="col-md-12 mb-2">
+					<div class="card">
+						<div class="row no-gutters">
+							<div class="col-md-3">
+								<a href="<?php echo site_url("pariwisata/detail_wisata"); ?>">
+								<!-- <a href="<?php //echo base_url();?>index.php/pariwisata/detail_wisata"> -->
+									<img src="https://lh5.googleusercontent.com/p/AF1QipMlZx50XTvsdLrd7vRqjUqQI_G_kBkmDRWMH_e7=w408-h272-k-no" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="col-md-9">
+								<div class="card-block px-2">
+									<h4 class="card-title">Lembah Gunung Galunggung</h4>
+									<p class="card-text">
+										Stratovolcano aktif dengan serangkaian tangga panjang menuju tepi kaldera &
+										pemandangan mengarah ke Kota Tasikmalaya. <a href="#">Info lebih lanjut...</a>
+									</p>
+									<div class="d-inline"><small class="text-muted">Buka: 04:00 - 21:00</small></div>
+									<div class="d-inline mx-2"><small class="text-muted">|</small></div>
+									<div class="d-inline"><small class="text-muted">Harga: Rp 5000,-/org</small></div>
+								</div>
+							</div>
+						</div>
+						<div class="card-footer w-100 text-muted inline-block ">
+							<div class="d-inline"><a href="https://goo.gl/maps/MeuNXhyqgFN2" target="_blank"><i class="fa fa-map-marker"></i> Linggawangi, Leuwisari, Tasikmalaya, Jawa Barat</a></div>
+							<div class="float-right">Rating: <span class="text-warning">4.3</span></div>
+						</div>
+					</div>
 				</div>
+				<!-- END OF A card section -->
+
+				<!-- A card section -->
+				<div class="col-md-12 mb-2">
+					<div class="card">
+						<div class="row no-gutters">
+							<div class="col-md-3">
+								<a href="#">
+									<img src="https://www.pegipegi.com/attraction/T01109/30586_T01109_mw2_google_com_mwpanoramio_photos_medium_43035076.jpg" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="col-md-9">
+								<div class="card-block px-2">
+									<h4 class="card-title">Situ Gede</h4>
+									<p class="card-text">
+										Situ Gede, artinya danau yang besar. Nikmati keindahan dan kesejukan sekitaran danau
+										sambil ditemani kuliner lokal Situ Gede. <a href="#">Info lebih lanjut...</a>
+									</p>
+									<div class="d-inline"><small class="text-muted">Buka: 05:00 - 19:00</small></div>
+									<div class="d-inline mx-2"><small class="text-muted">|</small></div>
+									<div class="d-inline"><small class="text-muted">Harga: Rp 5000,-/org</small></div>
+								</div>
+							</div>
+						</div>
+						<div class="card-footer w-100 text-muted inline-block ">
+							<div class="d-inline"><a href="https://goo.gl/maps/gksQLvyQ8Uv" class=""><i class="fa fa-map-marker"></i> Mangkubumi, Tasikmalaya, West Java</a></div>
+							<div class="float-right">Rating: <span class="text-warning">4.2</span></div>
+						</div>
+					</div>
+				</div>
+				<!-- END OF A card section -->
+
+				<!-- A card section -->
+				<div class="col-md-12 mb-2">
+					<div class="card">
+						<div class="row no-gutters">
+							<div class="col-md-3">
+								<a href="#">
+									<img src="https://assets-a2.kompasiana.com/items/album/2017/12/26/img-000000-000000-5a4210c45e1373156e0547b2.jpg?t=o&v=760" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="col-md-9">
+								<div class="card-block px-2">
+									<h4 class="card-title">Taman Wisata Karang Resik</h4>
+									<p class="card-text">
+										Tempat menyenangkan yang menyajikan seluncuran air kecil,
+										labirin seperti pagar tanaman, & taman bermain bergaya rumah pohon. <a href="#">Info lebih lanjut...</a>
+									</p>
+									<div class="d-inline"><small class="text-muted">Buka: 08:00 - 22:00</small></div>
+									<div class="d-inline mx-2"><small class="text-muted">|</small></div>
+									<div class="d-inline"><small class="text-muted">Harga: Rp 15000,-/org</small></div>
+								</div>
+							</div>
+						</div>
+						<div class="card-footer w-100 text-muted inline-block ">
+							<div class="d-inline"><a href="https://goo.gl/maps/DHcHXgdhbVp" target="_blank"><i class="fa fa-map-marker"></i> Jl. Mohamad Hatta, Sukamanah, Cipedes, Tasikmalaya, Jawa Barat 46131</a></div>
+							<div class="float-right">Rating: <span class="text-warning">4.2</span></div>
+						</div>
+					</div>
+				</div>
+				<!-- END OF A card section -->
+
+				<!-- Recomendation Section -->
+				<div class="col-md-12 mt-5">
+					<h3 class="text-center mb-4">Rekomendasi Pariwisata</h3>
+				</div>
+				<div class="col-md-4">
+					<div class="card mb-4 shadow-sm">
+						<a href="#">
+							<img src="https://3.bp.blogspot.com/-cgo2nXrKm20/V1tBZwmAAnI/AAAAAAAACkI/amCb3eV6TZY8lJvxvHnqokKcs4I9ogJ0gCLcB/s320/Tempat%2BPenjual%2BBaso%2BEnak%2Bdi%2BTasikmalaya.jpg" class="img-fluid" alt="" style="height:191.797px; width:100%;">
+						</a>
+						<div class="card-body">
+							<h4 class="card-title">Mie Bakso Laksana</h4>
+							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+							<div class="d-flex justify-content-between align-items-center">
+								<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+									<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+								</div>
+								<small class="text-muted">9 mins</small>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card mb-4 shadow-sm">
+						<a href="#">
+							<img src="https://c1.staticflickr.com/9/8516/8574339730_2330e4a7bc_b.jpg" class="img-fluid" alt="">
+						</a>
+						<div class="card-body">
+							<h4 class="card-title">Kampung Naga</h4>
+							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+							<div class="d-flex justify-content-between align-items-center">
+								<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+									<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+								</div>
+								<small class="text-muted">9 mins</small>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card mb-4 shadow-sm">
+						<a href="#">
+							<img src="https://mytrip123.com/wp-content/uploads/2018/11/pantai-cipatujah.jpg" class="img-fluid" alt="">
+						</a>
+						<div class="card-body">
+							<h4 class="card-title">Pantai Cipatujah</h4>
+							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </p>
+							<div class="d-flex justify-content-between align-items-center">
+								<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+									<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+								</div>
+								<small class="text-muted">9 mins</small>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
-	</footer>
+		<!-- END OF LIST OBJEK WISATA -->
+	</div>
+
+</main>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<p class="float-right">
+				<a href="#">Back to top</a>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+<footer class="text-muted bg-dark my-0 ">
+	<div class="container">
+		<div class="row mb-2">
+			<div class="col-md-4 text-light mt-3">
+				<p>ABOUT THIS</p>
+				<p>Go-Tasik is an information recomendation system in tourism.</p>
+			</div>
+			<div class="col-md-3 text-light mt-3">
+			</div>
+			<div class="col-md-5 text-light mt-3">
+				<p>CONTACT US</p>
+				<div class="row"><div class="col">
+					<i class="fa fa-map-marker"></i> Perum Cisalak Jl. Raya Nusa Indah Blok 4 No.11
+				</div></div>
+				<div class="row"><div class="col">
+					<i class="fa fa-phone"></i> <a href="whatsapp://send?text=Hai%2C%20Ihsan!" class="text-light">0822-4027-0827</a>
+				</div></div>
+				<div class="row"><div class="col">
+					<i class="fa fa-envelope-o"></i> <a href="mailto:ihsan.fajari@gmail.com" class="text-light">ihsan.fajari@gmail.com</a>
+				</div></div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 text-center my-1 mt-4">
+				<p>Copyright &copy; 2019 Go-Tasik</p>
+			</div>
+		</div>
+	</div>
+</footer>
 
 </body>
 </html>
