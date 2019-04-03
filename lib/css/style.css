@@ -1,0 +1,38 @@
+html,
+body,
+header,
+#intro {
+  /* MDBoostrap Tutotrial default with height 100% */
+  /* height: 100%; */
+}
+
+body {
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:100vh;
+}
+
+#intro {
+  background: url("../img/mask/free-office-wallpaper-26001-26685-hd-wallpapers.jpg")no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.top-nav-collapse {
+  background-color: white;
+}
+@media (max-width: 768px) {
+  .navbar:not(.top-nav-collapse) {
+    background-color: white;
+  }
+}
+@media (min-width: 800px) and (max-width: 850px) {
+  .navbar:not(.top-nav-collapse) {
+    background-color: white;
+  }
+}

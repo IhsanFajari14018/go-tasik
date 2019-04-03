@@ -1,0 +1,21 @@
+CREATE VIEW objek_wisata AS
+    SELECT *
+    FROM pariwisata
+    WHERE
+    	kategori = 'air terjun' OR
+        kategori = 'alam' OR
+        kategori = 'daunau' OR
+        kategori = 'gunung' OR
+        kategori = 'kolam renang' OR
+        kategori = 'pantai';
+
+
+CREATE VIEW wisata_kulier AS
+    SELECT *
+    FROM pariwisata
+    WHERE
+        kategori = 'bubur' OR
+        kategori = 'kupat tahu' OR
+        kategori = 'mie bakso' OR
+        kategori = 'soto' OR
+        kategori = 'lainnya';

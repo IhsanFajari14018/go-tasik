@@ -159,96 +159,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="container">
 				<div class="row">
 
-					<!-- A card section -->
-					<div class="col-md-12 mb-2">
-						<div class="card">
-							<div class="row no-gutters">
-								<div class="col-md-3">
-									<a href="<?php echo site_url("pariwisata/detail_wisata"); ?>">
-										<!-- <a href="<?php //echo base_url();?>index.php/pariwisata/detail_wisata"> -->
-										<img src="https://lh5.googleusercontent.com/p/AF1QipMlZx50XTvsdLrd7vRqjUqQI_G_kBkmDRWMH_e7=w408-h272-k-no" class="img-fluid" alt="">
-									</a>
-								</div>
-								<div class="col-md-9">
-									<div class="card-block px-2">
-										<h4 class="card-title">Lembah Gunung Galunggung</h4>
-										<p class="card-text">
-											Stratovolcano aktif dengan serangkaian tangga panjang menuju tepi kaldera &
-											pemandangan mengarah ke Kota Tasikmalaya. <a href="#">Info lebih lanjut...</a>
-										</p>
-										<div class="d-inline"><small class="text-muted">Buka: 04:00 - 21:00</small></div>
-										<div class="d-inline mx-2"><small class="text-muted">|</small></div>
-										<div class="d-inline"><small class="text-muted">Harga: Rp 5000,-/org</small></div>
-									</div>
-								</div>
-							</div>
-							<div class="card-footer w-100 text-muted inline-block ">
-								<div class="d-inline"><a href="https://goo.gl/maps/MeuNXhyqgFN2" target="_blank"><i class="fa fa-map-marker"></i> Linggawangi, Leuwisari, Tasikmalaya, Jawa Barat</a></div>
-								<div class="float-right">Rating: <span class="text-warning">4.3</span></div>
-							</div>
-						</div>
-					</div>
-					<!-- END OF A card section -->
+					<?php foreach($daftar_wisata as $d){ ?>
 
-					<!-- A card section -->
-					<div class="col-md-12 mb-2">
-						<div class="card">
-							<div class="row no-gutters">
-								<div class="col-md-3">
-									<a href="#">
-										<img src="https://www.pegipegi.com/attraction/T01109/30586_T01109_mw2_google_com_mwpanoramio_photos_medium_43035076.jpg" class="img-fluid" alt="">
-									</a>
-								</div>
-								<div class="col-md-9">
-									<div class="card-block px-2">
-										<h4 class="card-title">Situ Gede</h4>
-										<p class="card-text">
-											Situ Gede, artinya danau yang besar. Nikmati keindahan dan kesejukan sekitaran danau
-											sambil ditemani kuliner lokal Situ Gede. <a href="#">Info lebih lanjut...</a>
-										</p>
-										<div class="d-inline"><small class="text-muted">Buka: 05:00 - 19:00</small></div>
-										<div class="d-inline mx-2"><small class="text-muted">|</small></div>
-										<div class="d-inline"><small class="text-muted">Harga: Rp 5000,-/org</small></div>
+						<!-- A card section -->
+						<div class="col-md-12 mb-2">
+							<div class="card">
+								<div class="row no-gutters">
+									<div class="col-md-3">
+										<a href="<?php echo site_url("detail_wisata/".$d->id_pariwisata) ; ?>">
+											<img src="<?php echo base_url($d->foto); ?>" class="img-fluid" alt="">
+										</a>
+									</div>
+									<div class="col-md-9">
+										<div class="card-block px-2">
+											<h4 class="card-title"> <?php echo $d->nama; ?> </h4>
+											<p class="card-text">
+												<?php echo substr($d->deskripsi,0,280)."..." ?>
+												<a href="<?php echo site_url("detail_wisata/".$d->id_pariwisata) ; ?>">
+													<span class="text-primary">Baca Lebih Lanjut >></span>
+												</a>
+											</p>
+											<div class="d-inline"><small class="text-muted">Buka: <?php echo $d->buka; ?></small></div>
+											<div class="d-inline mx-2"><small class="text-muted">|</small></div>
+											<div class="d-inline"><small class="text-muted">Harga mulai dari: Rp <?php echo $d->harga_terendah; ?>,-/orang</small></div>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="card-footer w-100 text-muted inline-block ">
-								<div class="d-inline"><a href="https://goo.gl/maps/gksQLvyQ8Uv" class=""><i class="fa fa-map-marker"></i> Mangkubumi, Tasikmalaya, West Java</a></div>
-								<div class="float-right">Rating: <span class="text-warning">4.2</span></div>
+								<div class="card-footer w-100 text-muted inline-block ">
+									<div class="d-inline"><a href=<?php echo $d->url_map; ?> target="_blank"><i class="fa fa-map-marker"></i><?php echo $d->alamat; ?></a></div>
+									<?php
+									$rating = "";
+									if($d->rating==0){
+										$rating = "-";
+									}else{
+										$rating = substr($d->rating,0,3);
+									}
+									?>
+									<div class="float-right">Rating: <span class="text-warning"> <?php echo $rating; ?> </span></div>
+								</div>
 							</div>
 						</div>
-					</div>
-					<!-- END OF A card section -->
+						<!-- END OF A card section -->
 
-					<!-- A card section -->
-					<div class="col-md-12 mb-2">
-						<div class="card">
-							<div class="row no-gutters">
-								<div class="col-md-3">
-									<a href="#">
-										<img src="https://assets-a2.kompasiana.com/items/album/2017/12/26/img-000000-000000-5a4210c45e1373156e0547b2.jpg?t=o&v=760" class="img-fluid" alt="">
-									</a>
-								</div>
-								<div class="col-md-9">
-									<div class="card-block px-2">
-										<h4 class="card-title">Taman Wisata Karang Resik</h4>
-										<p class="card-text">
-											Tempat menyenangkan yang menyajikan seluncuran air kecil,
-											labirin seperti pagar tanaman, & taman bermain bergaya rumah pohon. <a href="#">Info lebih lanjut...</a>
-										</p>
-										<div class="d-inline"><small class="text-muted">Buka: 08:00 - 22:00</small></div>
-										<div class="d-inline mx-2"><small class="text-muted">|</small></div>
-										<div class="d-inline"><small class="text-muted">Harga: Rp 15000,-/org</small></div>
-									</div>
-								</div>
-							</div>
-							<div class="card-footer w-100 text-muted inline-block ">
-								<div class="d-inline"><a href="https://goo.gl/maps/DHcHXgdhbVp" target="_blank"><i class="fa fa-map-marker"></i> Jl. Mohamad Hatta, Sukamanah, Cipedes, Tasikmalaya, Jawa Barat 46131</a></div>
-								<div class="float-right">Rating: <span class="text-warning">4.2</span></div>
-							</div>
-						</div>
-					</div>
-					<!-- END OF A card section -->
+					<?php } ?>
 
 					<!-- Recomendation Section -->
 					<div class="col-md-12 mt-5">

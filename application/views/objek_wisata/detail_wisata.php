@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><?php echo $title; ?></title>
+	<title><?php echo "Objek Wisata - ".$detail_wisata->nama; ?></title>
 
 	<!-- CSS & JS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -119,6 +119,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
+	<!-- HEADER NAVIGATION -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -171,49 +172,85 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</form>
 	</nav>
+	<!-- END OF HEADER NAVIGATION -->
 
 	<main role="main">
 		<!--LIST OBJEK WISATA -->
 		<div class="album py-5">
 			<div class="container">
+
 				<!-- Description -->
 				<div class="row featurette">
 					<div class="col-md-7">
 						<h2 class="featurette-heading">
-							Lembah Gunung Galunggung
-							<!-- <span class="text-muted"></span> -->
+							<?php echo $detail_wisata->nama; ?>
 						</h2>
 						<p class="lead">
-							Gunung Galunggung merupakan gunung berapi dengan ketinggian 2.167 meter di atas permukaan laut,
-							terletak sekitar 17 km dari pusat kota Tasikmalaya. Untuk mencapai puncak Galunggung,
-							dibangun sebuah tangga yang memiliki 620 anak tangga. Objek yang lainnya seluas
-							kurang lebih 3 hektar berupa pemandian air panas (Cipanas) lengkap dengan fasilitas kolam renang,
-							kamar mandi dan bak rendam air panas.
+							<?php echo $detail_wisata->deskripsi; ?>
 						</p>
 					</div>
 					<div class="col-md-5">
-						<img src="https://lh5.googleusercontent.com/p/AF1QipMlZx50XTvsdLrd7vRqjUqQI_G_kBkmDRWMH_e7=w408-h272-k-no" class="img-fluid rounded" alt="-">
+						<?php $foto = $detail_wisata->foto; ?>
+						<img src="<?php echo base_url($foto);?>" class="img-fluid rounded" alt="-">
 					</div>
 				</div>
 				<!-- END OF Description -->
 
-				<!-- Pricing -->
+				<!-- More Desc. -->
 				<div class="row featurette mt-2">
 					<div class="col-md-5">
 						<h5 class="featurette-heading"><span class="text-muted">Lokasi</span></h5>
-						<a href="https://goo.gl/maps/MeuNXhyqgFN2" target="_blank"><i class="fa fa-map-marker"></i> Linggawangi, Leuwisari, Tasikmalaya, Jawa Barat</a>
+						<a href="<?php echo $detail_wisata->url_map; ?>" target="_blank">
+							<i class="fa fa-map-marker"></i>
+							<?php echo $detail_wisata->alamat; ?>
+						</a>
 					</div>
 					<div class="col-md-4">
 						<h5 class="featurette-heading"><span class="text-muted">Harga</span></h5>
-						<p class="lead mb-0">Weekdays: Rp 5000,- /org</p>
-						<p class="lead mb-0">Weekends: Rp 7000,- /org</p>
+						<p class="lead mb-0">Tiket: <?php echo $harga_tiket->harga_terendah; ?>,- /org</p>
 					</div>
 					<div class="col-md-3">
 						<h5 class="featurette-heading"><span class="text-muted">Rating</span></h5>
-						<p class="lead"><span class="text-warning font-weight-bold">4.3</span></p>
+						<?php
+						$rating = "";
+						if($detail_wisata->rating==0){
+							$rating = "Belum ada rating";
+						}else{
+							$rating = substr($detail_wisata->rating,0,3);
+						}
+						?>
+						<p class="lead"><span class="text-warning font-weight-bold"><?php echo $rating; ?></span></p>
 					</div>
 				</div>
-				<!-- END OF Pricing -->
+				<!-- END OF More Desc. -->
+
+				<div class="my-5">
+					<hr class="featurette-divider">
+				</div>
+
+				<!-- SPOT WISATA -->
+				<div class="row">
+					<div class="col-md-12 mt-5">
+						<h1 class="text-center mb-4 font-weight-bolder">GALERI OBJEK WISATA</h1>
+					</div>
+
+					<?php foreach($spot_photo as $d){ ?>
+
+						<?php if($d->nama!="Tiket"){ ?>
+							<div class="col-md-4">
+								<div class="card mb-4 shadow-sm">
+									<img src="<?php echo base_url($d->foto); ?>" class="img-fluid" alt="" style="height:200px; width:auto;">
+									<div class="card-body">
+										<h4 class="card-title"><?php echo $d->nama; ?></h4>
+									</div>
+								</div>
+							</div>
+						<?php } ?>
+
+					<?php } ?>
+
+				</div>
+				<!-- END OF SPOT WISATA -->
 
 				<!-- REVIEW -->
 				<div>
@@ -221,87 +258,79 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<hr class="featurette-divider">
 					</div>
 					<h2 class="featurette-heading">
-						Review
+						Ulasan
 					</h2>
-					<div class="row">
-						<div class="col">
-							<p class="featurette-heading mb-0"><span class="text-muted">Oleh </span>Ihsan Fajari</p>
-							<p class="featurette-heading"><span class="text-muted">Rating: </span> <span class="text-warning font-weight-bold">4</span></p>
-							<p class="featurette-heading">Good place to have a family camp. Has a good enough management of ticketing, security, and parking.</span></p>
-							<small><p class="text-muted text-right mb-0">20 February 2019</p></small>
-							<!-- <div class="float-right mr-3"> <small class="text-muted text-right">20 February 2019</small> </div> -->
-						</div>
-					</div>
-					<hr class="featurette-divider">
 
-					<div class="row">
-						<div class="col">
-							<p class="featurette-heading mb-0"><span class="text-muted">Oleh </span>Agus Supardi</p>
-							<p class="featurette-heading"><span class="text-muted">Rating: </span><span class="text-warning font-weight-bold">5</span></p>
-							<p class="featurette-heading">Mount Galunggung is an active stratovolcano in West Java, Indonesia. It is a part of the Sunda Arch extending through Sumatra, Java and Bali, which has resulted from the subduction of the Australian plate beneath the Eurasian plate. The elevation of this mount is 7,113 ft and the coordinate. 7°15'24'S 108°04'37'E. Mount Galunggung have a beautiful view, you can see view of Tasikmalaya and around on the top.</span></p>
-							<small><p class="text-muted text-right mb-0">15 February 2019</p></small>
-						</div>
-					</div>
-					<hr class="featurette-divider">
+					<?php $display = 0; ?>
+					<?php foreach ($daftar_ulasan as $d ) { ?>
+						<?php if($d->ditampilkan==1){ ?>
+							<!-- IF TRUE BOLEH DITAMPILKAN -->
+							<div class="row">
+								<div class="col">
+									<p class="featurette-heading mb-0"><span class="text-muted">Oleh </span> <?php echo $d->nama; ?></p>
+									<p class="featurette-heading"><span class="text-muted">Rating: </span> <span class="text-warning font-weight-bold"><?php echo $d->rating; ?></span></p>
+									<p class="featurette-heading"><?php echo $d->ulasan; ?></span></p>
+									<small><p class="text-muted text-right mb-0"><?php echo $d->tanggal; ?></p></small>
+								</div>
+							</div>
+							<hr class="featurette-divider">
+							<!-- Update Display -->
+							<?php $display = 1;?>
+						<?php }?>
+					<?php } ?>
 
-					<div class="row">
-						<div class="col">
-							<p class="featurette-heading mb-0"><span class="text-muted">Oleh </span>Nathan</p>
-							<p class="featurette-heading"><span class="text-muted">Rating: </span><span class="text-warning font-weight-bold">3</span></p>
-							<p class="featurette-heading">Tempatna mayan ngeunaheun jiga di lembur urang, Gunung St. Mary Peak </span></p>
-							<small><p class="text-muted text-right mb-0">31 January 2019</p></small>
-						</div>
-					</div>
-					<hr class="featurette-divider">
+					<!-- JIKA BELUM ADA ULASAN: -->
+					<?php if($display==0){ ?>
+						<p class="featurette-heading">Jadilah orang pertama yang memberi ulasan!</span></p>
+					<?php } ?>
+
 				</div>
-
 				<!-- END OF REVIEW -->
 
 				<!-- ISI KOMENTAR -->
-				<!-- ISI KOMENTAR -->
-        <div class="mt-5 mb-3">
-          <h2 class="featurette-heading">
-            Form untuk mengis ulasan
-          </h2>
-        </div>
+				<div class="mt-5 mb-3">
+					<h2 class="featurette-heading">
+						Form untuk mengis ulasan
+					</h2>
+				</div>
 
-        <form>
-          <div class="form-row">
-            <div class="col-md-4 mb-3">
-              <label for="validationDefault01">Nama</label>
-              <input type="text" class="form-control" id="validationDefault01" placeholder="Masukan namamu ..." value="" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="col-md-4 mb-3">
-              <label for="validationDefault01">Rating</label>
-              <select class="custom-select" required>
-                <option value="">Beri rating 1-5</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="2">4</option>
-                <option value="3">5</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="col-md-4 mb-3">
-              <label for="exampleFormControlTextarea1">Masukan Ulasanmu</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Masukan ulasanmu ..." required></textarea>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-              <label class="form-check-label" for="invalidCheck2">
-                Agree to terms and conditions
-              </label>
-            </div>
-          </div>
-          <button class="btn btn-success" type="submit">Kirim Ulasan</button>
-        </form>
-        <!-- END OF ISI KOMENTAR -->
+				<form>
+					<div class="form-row">
+						<div class="col-md-4 mb-3">
+							<label for="validationDefault01">Nama</label>
+							<input type="text" class="form-control" id="validationDefault01" placeholder="Masukan namamu ..." value="" required>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-4 mb-3">
+							<label for="validationDefault01">Rating</label>
+							<select class="custom-select" required>
+								<option value="">Beri rating 1-5</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="2">4</option>
+								<option value="3">5</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col-md-4 mb-3">
+							<label for="exampleFormControlTextarea1">Masukan Ulasanmu</label>
+							<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Masukan ulasanmu ..." required></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+							<label class="form-check-label" for="invalidCheck2">
+								Agree to terms and conditions
+							</label>
+						</div>
+					</div>
+					<button class="btn btn-success" type="submit">Kirim Ulasan</button>
+				</form>
+				<!-- END OF ISI KOMENTAR -->
 				<!-- END OF ISI KOMENTAR -->
 
 				<!-- Recomendation Section -->

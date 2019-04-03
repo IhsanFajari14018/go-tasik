@@ -1,0 +1,46 @@
+// WISATA KULINER
+
+SELECT
+    `go-tasik`.`pariwisata`.`id_pariwisata` AS `id_pariwisata`,
+    `go-tasik`.`pariwisata`.`nama` AS `nama`,
+    `go-tasik`.`pariwisata`.`deskripsi` AS `deskripsi`,
+    `go-tasik`.`pariwisata`.`alamat` AS `alamat`,
+    `go-tasik`.`pariwisata`.`telepon` AS `telepon`,
+    `go-tasik`.`pariwisata`.`buka` AS `buka`,
+    `go-tasik`.`pariwisata`.`jumlah_dikunjungi` AS `jumlah_dikunjungi`,
+    `go-tasik`.`pariwisata`.`kategori` AS `kategori`,
+    `go-tasik`.`pariwisata`.`email` AS `email`,
+    `go-tasik`.`pariwisata`.`rating` AS `rating`,
+    `go-tasik`.`pariwisata`.`url_map` AS `url_map`,
+    `go-tasik`.`pariwisata`.`foto` AS `foto`,
+    `go-tasik`.`harga_terendah`.`harga_terendah` AS `harga_terendah`
+FROM
+    `go-tasik`.`pariwisata`
+     INNER JOIN `go-tasik`.`harga_terendah` ON
+     	`go-tasik`.`pariwisata`.id_pariwisata = `go-tasik`.`harga_terendah`.fk_pariwisata
+WHERE
+    (
+        (
+            `go-tasik`.`pariwisata`.`kategori` = 'bubur ayam'
+        ) OR(
+            `go-tasik`.`pariwisata`.`kategori` = 'kupat tahu'
+        ) OR(
+            `go-tasik`.`pariwisata`.`kategori` = 'mie bakso'
+        ) OR(
+            `go-tasik`.`pariwisata`.`kategori` = 'soto'
+        ) OR(
+            `go-tasik`.`pariwisata`.`kategori` = 'lainnya'
+        )
+    )
+
+
+// TESTING JOIN with AS
+
+SELECT
+     t1.`nama`,
+    `id_pariwisata` AS `id_pariwisata`,
+    `harga` AS `harga`
+FROM
+	pariwisata t1
+    INNER JOIN
+    detail t2 ON t1.id_pariwisata = t2.fk_pariwisata

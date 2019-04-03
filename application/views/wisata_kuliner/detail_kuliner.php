@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?php echo $title; ?></title>
+  <title><?php echo "Wisata Kuliner - ".$detail_kuliner->nama; ?></title>
 
   <!-- CSS & JS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -147,19 +147,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- DROPDOWN NEAR SEARCH -->
     <ul class="navbar-nav">
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Kategori
-				</a>
-				<div class="dropdown-menu" aria-labelledby="dropdown08">
-					<a class="dropdown-item" href="#">Bubur</a>
-					<a class="dropdown-item" href="#">Kupat Tahu</a>
-					<a class="dropdown-item" href="#">Mie Bakso</a>
-					<a class="dropdown-item" href="#">Soto</a>
-					<a class="dropdown-item" href="#">Lainnya</a>
-				</div>
-			</li>
-		</ul>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Kategori
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown08">
+          <a class="dropdown-item" href="#">Bubur</a>
+          <a class="dropdown-item" href="#">Kupat Tahu</a>
+          <a class="dropdown-item" href="#">Mie Bakso</a>
+          <a class="dropdown-item" href="#">Soto</a>
+          <a class="dropdown-item" href="#">Lainnya</a>
+        </div>
+      </li>
+    </ul>
     <!-- END OF DROPDOWN NEAR SEARCH -->
 
     <form class="input-group mt-3 mr-1" style="width: 55%">
@@ -183,32 +183,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row featurette">
           <div class="col-md-7">
             <h2 class="featurette-heading">
-              Mie Bakso Laksana
-              <!-- <span class="text-muted"></span> -->
+              <?php echo $detail_kuliner->nama; ?>
             </h2>
             <p class="lead">
-              Mie Bakso yang terdiri dari daging cincang, bawang bombay, bakso, dan kuah yang disajikan dengan terpisah.
-              Terdiri juga menu mie bakso lainnya.
+              <?php echo $detail_kuliner->deskripsi; ?>
             </p>
           </div>
           <div class="col-md-5">
-            <img src="<?php echo base_url('img/Mie-bakso-laksana-restaurant.jpg');?>" class="img-fluid rounded" alt="-">
+            <?php $foto = $detail_kuliner->foto ?>
+            <img src="<?php echo base_url($foto);?>" class="img-fluid rounded" alt="-">
           </div>
         </div>
-        <!-- END OF Description -->
+        <!-- End of Description -->
 
-        <!-- Pricing -->
+        <!-- More Desc. -->
         <div class="row featurette mt-2">
           <div class="col-md-5">
             <h5 class="featurette-heading"><span class="text-muted">Lokasi</span></h5>
-            <a href="https://goo.gl/maps/hJqgpzkPuWm" target="_blank"><i class="fa fa-map-marker"></i> Jl. Pemuda No.5, Yudanagara, Cihideung, Tasikmalaya, Jawa Barat 46121</a>
+            <a href="<?php echo $detail_kuliner->url_map; ?>" target="_blank">
+              <i class="fa fa-map-marker"></i>
+              <?php echo $detail_kuliner->alamat; ?>
+            </a>
           </div>
           <div class="col-md-3">
             <h5 class="featurette-heading"><span class="text-muted">Rating</span></h5>
-            <p class="lead"><span class="text-warning font-weight-bold">4.3</span></p>
+            <?php
+						$rating = "";
+						if($detail_kuliner->rating==0){
+							$rating = "Belum ada rating";
+						}else{
+							$rating = substr($detail_wisata->rating,0,3);
+						}
+						?>
+						<p class="lead"><span class="text-warning font-weight-bold"><?php echo $rating; ?></span></p>
           </div>
         </div>
-        <!-- END OF Pricing -->
+        <!-- END OF More Desc. -->
 
         <div class="my-5">
           <hr class="featurette-divider">
@@ -219,81 +229,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-md-12 mt-5">
             <h1 class="text-center mb-4 font-weight-bolder">MENU</h1>
           </div>
-          <!-- 1 -->
-          <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-              <img src="<?php echo base_url('img/13410202016-0911-09180400780x390.JPG'); ?>" class="img-fluid" alt="">
-              <div class="card-body">
-                <h4 class="card-title">Mie Bakso - Yamin Manis Tahu Babat</h4>
-                <small class="text-muted">Additional Description</small>
-                <p class="card-text">
-                  Harga: Rp 40.000,-/porsi
-                </p>
+
+          <?php foreach($menu_kuliner as $d){ ?>
+            <div class="col-md-3">
+              <div class="card mb-4 shadow-sm">
+                <img src="<?php echo base_url($d->foto); ?>" class="img-fluid" alt="" style="height:200px; width:auto;">
+                <div class="card-body">
+                  <h4 class="card-title"><?php echo $d->nama; ?></h4>
+                  <small class="text-muted"><?php echo $d->deskripsi; ?></small>
+                  <p class="card-text">
+                    Harga: <?php echo $d->harga; ?>,-/porsi
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- 2 -->
-          <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-              <img src="<?php echo base_url('img/13410202016-0911-09180400780x390.JPG'); ?>" class="img-fluid" alt="">
-              <div class="card-body">
-                <h4 class="card-title">Mie Bakso - Yamin Manis Tahu Babat</h4>
-                <small class="text-muted">Additional Description</small>
-                <p class="card-text">
-                  Harga: Rp 40.000,-/porsi
-                </p>
-              </div>
-            </div>
-          </div>
-          <!-- 3 -->
-          <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-              <img src="<?php echo base_url('img/13410202016-0911-09180400780x390.JPG'); ?>" class="img-fluid" alt="">
-              <div class="card-body">
-                <h4 class="card-title">Mie Bakso - Yamin Manis Tahu Babat</h4>
-                <small class="text-muted">Additional Description</small>
-                <p class="card-text">
-                  Harga: Rp 40.000,-/porsi
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-              <img src="<?php echo base_url('img/13410202016-0911-09180400780x390.JPG'); ?>" class="img-fluid" alt="">
-              <div class="card-body">
-                <h4 class="card-title">Mie Bakso - Yamin Manis Tahu Babat</h4>
-                <small class="text-muted">Additional Description</small>
-                <p class="card-text">
-                  Harga: Rp 40.000,-/porsi
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-              <img src="<?php echo base_url('img/13410202016-0911-09180400780x390.JPG'); ?>" class="img-fluid" alt="">
-              <div class="card-body">
-                <h4 class="card-title">Mie Bakso - Yamin Manis Tahu Babat</h4>
-                <small class="text-muted">Additional Description</small>
-                <p class="card-text">
-                  Harga: Rp 40.000,-/porsi
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-              <img src="<?php echo base_url('img/13410202016-0911-09180400780x390.JPG'); ?>" class="img-fluid" alt="">
-              <div class="card-body">
-                <h4 class="card-title">Mie Bakso - Yamin Manis Tahu Babat</h4>
-                <small class="text-muted">Additional Description</small>
-                <p class="card-text">
-                  Harga: Rp 40.000,-/porsi
-                </p>
-              </div>
-            </div>
-          </div>
+          <?php } ?>
+
         </div>
         <!-- END OF MENU -->
 
@@ -306,44 +257,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             Ulasan
           </h2>
 
-          <div class="row">
-            <div class="col">
-              <p class="featurette-heading mb-0"><span class="text-muted">Oleh </span>Ihsan Fajari</p>
-              <p class="featurette-heading"><span class="text-muted">Rating: </span> <span class="text-warning font-weight-bold">4</span></p>
-              <p class="featurette-heading">This restaurant is tasty, but PRICEFUL!</span></p>
-              <small><p class="text-muted text-right mb-0">20 February 2019</p></small>
-              <!-- <div class="float-right mr-3"> <small class="text-muted text-right">20 February 2019</small> </div> -->
-            </div>
-          </div>
-          <hr class="featurette-divider">
+          <?php $display = 0; ?>
+          <?php foreach ($daftar_ulasan as $d ) { ?>
+            <?php if($d->ditampilkan==1){ ?>
+              <!-- IF TRUE BOLEH DITAMPILKAN -->
+              <div class="row">
+                <div class="col">
+                  <p class="featurette-heading mb-0"><span class="text-muted">Oleh </span> <?php echo $d->nama; ?></p>
+                  <p class="featurette-heading"><span class="text-muted">Rating: </span> <span class="text-warning font-weight-bold"><?php echo $d->rating; ?></span></p>
+                  <p class="featurette-heading"><?php echo $d->ulasan; ?></span></p>
+                  <small><p class="text-muted text-right mb-0"><?php echo $d->tanggal; ?></p></small>
+                  <!-- <div class="float-right mr-3"> <small class="text-muted text-right">20 February 2019</small> </div> -->
+                </div>
+              </div>
+              <hr class="featurette-divider">
+              <!-- Update Display -->
+              <?php $display = 1;?>
+            <?php }?>
+          <?php } ?>
 
-          <div class="row">
-            <div class="col">
-              <p class="featurette-heading mb-0"><span class="text-muted">Oleh </span>Agus Supardi</p>
-              <p class="featurette-heading"><span class="text-muted">Rating: </span><span class="text-warning font-weight-bold">5</span></p>
-              <p class="featurette-heading">I think this is the best noodles and meatball I have ever ate.</span></p>
-              <small><p class="text-muted text-right mb-0">15 February 2019</p></small>
-            </div>
-          </div>
-          <hr class="featurette-divider">
+          <!-- JIKA BELUM ADA ULASAN: -->
+          <?php if($display==0){ ?>
+            <p class="featurette-heading">Jadilah orang pertama yang memberi ulasan!</span></p>
+          <?php } ?>
 
-          <div class="row">
-            <div class="col">
-              <p class="featurette-heading mb-0"><span class="text-muted">Oleh </span>Nathan</p>
-              <p class="featurette-heading"><span class="text-muted">Rating: </span><span class="text-warning font-weight-bold">3</span></p>
-              <p class="featurette-heading">Mahal teuing, saporsina bisa 3eun bakso gigireun imah.</span></p>
-              <small><p class="text-muted text-right mb-0">31 January 2019</p></small>
-            </div>
-          </div>
-          <hr class="featurette-divider">
         </div>
-
         <!-- END OF REVIEW -->
 
-        <!-- ISI KOMENTAR -->
+        <!-- MENGISI KOMENTAR -->
         <div class="mt-5 mb-3">
           <h2 class="featurette-heading">
-            Form untuk mengis ulasan
+            Form untuk mengisi ulasan
           </h2>
         </div>
 
@@ -351,7 +295,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="form-row">
             <div class="col-md-4 mb-3">
               <label for="validationDefault01">Nama</label>
-              <input type="text" class="form-control" id="validationDefault01" placeholder="Masukan namamu ..." value="" required>
+              <input type="text" class="form-control" id="validationDefault01" placeholder="Masukan namamu .." value="" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault01">Email</label>
+              <input type="text" class="form-control" id="validationDefault01" placeholder="Masukan emailmu .." value="" required>
             </div>
           </div>
           <div class="form-row">
@@ -370,89 +320,85 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="form-row">
             <div class="col-md-4 mb-3">
               <label for="exampleFormControlTextarea1">Masukan Ulasanmu</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Masukan ulasanmu ..." required></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Masukan ulasanmu .." required></textarea>
             </div>
           </div>
           <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-              <label class="form-check-label" for="invalidCheck2">
-                Agree to terms and conditions
-              </label>
-            </div>
-          </div>
-          <button class="btn btn-success" type="submit">Kirim Ulasan</button>
-        </form>
-        <!-- END OF ISI KOMENTAR -->
+            <!-- <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+            <label class="form-check-label" for="invalidCheck2">Agree to terms and conditions</label>
+          </div> -->
+        </div>
+        <button class="btn btn-success" type="submit">Kirim Ulasan</button>
+      </form>
+      <!-- END OF ISI KOMENTAR -->
 
 
-        <!-- Recomendation Section -->
-        <div class="row">
-          <div class="col-md-12 mt-5">
-            <h3 class="text-center mb-4">Rekomendasi Pariwisata</h3>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <a href="#">
-                <img src="https://3.bp.blogspot.com/-cgo2nXrKm20/V1tBZwmAAnI/AAAAAAAACkI/amCb3eV6TZY8lJvxvHnqokKcs4I9ogJ0gCLcB/s320/Tempat%2BPenjual%2BBaso%2BEnak%2Bdi%2BTasikmalaya.jpg" class="img-fluid" alt="" style="height:191.797px; width:100%;">
-              </a>
-              <div class="card-body">
-                <h4 class="card-title">Mie Bakso Laksana</h4>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
+      <!-- Recomendation Section -->
+      <div class="row">
+        <div class="col-md-12 mt-5">
+          <h3 class="text-center mb-4">Rekomendasi Pariwisata</h3>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <a href="#">
+              <img src="https://3.bp.blogspot.com/-cgo2nXrKm20/V1tBZwmAAnI/AAAAAAAACkI/amCb3eV6TZY8lJvxvHnqokKcs4I9ogJ0gCLcB/s320/Tempat%2BPenjual%2BBaso%2BEnak%2Bdi%2BTasikmalaya.jpg" class="img-fluid" alt="" style="height:191.797px; width:100%;">
+            </a>
+            <div class="card-body">
+              <h4 class="card-title">Mie Bakso Laksana</h4>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <a href="#">
-                <img src="https://c1.staticflickr.com/9/8516/8574339730_2330e4a7bc_b.jpg" class="img-fluid" alt="">
-              </a>
-              <div class="card-body">
-                <h4 class="card-title">Kampung Naga</h4>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <a href="#">
-                <img src="https://mytrip123.com/wp-content/uploads/2018/11/pantai-cipatujah.jpg" class="img-fluid" alt="">
-              </a>
-              <div class="card-body">
-                <h4 class="card-title">Pantai Cipatujah</h4>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
+                <small class="text-muted">9 mins</small>
               </div>
             </div>
           </div>
         </div>
-        <!-- END Recomendation Section -->
-
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <a href="#">
+              <img src="https://c1.staticflickr.com/9/8516/8574339730_2330e4a7bc_b.jpg" class="img-fluid" alt="">
+            </a>
+            <div class="card-body">
+              <h4 class="card-title">Kampung Naga</h4>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <a href="#">
+              <img src="https://mytrip123.com/wp-content/uploads/2018/11/pantai-cipatujah.jpg" class="img-fluid" alt="">
+            </a>
+            <div class="card-body">
+              <h4 class="card-title">Pantai Cipatujah</h4>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <!-- END OF LIST OBJEK WISATA -->
-  </div>
+      <!-- END Recomendation Section -->
 
+    </div>
+  </div>
+  <!-- END OF LIST OBJEK WISATA -->
 </main>
 
 

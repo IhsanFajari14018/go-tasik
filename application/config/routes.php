@@ -53,5 +53,9 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['detail_kuliner/(:num)'] = 'pariwisata/Detail_kuliner/getDetailKuliner/$1';
+
+$route['detail_wisata/(:num)'] = 'pariwisata/Detail_wisata/getDetailWisata/$1';
+
 //SALAH
 //$route['objek_wisata/detail_wisata'] = 'objek_wisata/detail_wisata';
