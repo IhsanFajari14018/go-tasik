@@ -53,9 +53,21 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['detail_kuliner/(:num)'] = 'pariwisata/Detail_kuliner/getDetailKuliner/$1';
+// $route['detail_kuliner/(:num)'] = 'pariwisata/Detail_kuliner/getDetailKuliner/$1';
+// $route['wisata-kuliner/(:any)'] = 'Wisata_kuliner/getKulinerByKategori/$1';
+//
+// $route['detail_wisata/(:num)'] = 'pariwisata/Detail_wisata/getDetailWisata/$1';
+// $route['objek-wisata/(:any)'] = 'Objek_wisata/getWisataByKategori/$1';
 
-$route['detail_wisata/(:num)'] = 'pariwisata/Detail_wisata/getDetailWisata/$1';
+// Lebih rapih
+$route['objek-wisata'] = 'pariwisata/Daftar_pariwisata/getObjekWisata';
+$route['wisata-kuliner'] = 'pariwisata/Daftar_pariwisata/getWisataKuliner';
 
-//SALAH
-//$route['objek_wisata/detail_wisata'] = 'objek_wisata/detail_wisata';
+$route['objek-wisata/(:any)'] = 'pariwisata/Daftar_pariwisata/getPariwisataByKategori/$1';
+$route['wisata-kuliner/(:any)'] = 'pariwisata/Daftar_pariwisata/getPariwisataByKategori/$1';
+$route['cari-pariwisata'] = 'pariwisata/Daftar_pariwisata/getPariwisataBySearch';
+$route['pariwisata/detail/(:any)'] = 'pariwisata/Detail_pariwisata/getDetailPariwisata/$1';
+
+$route['ulasan/(:num)'] = 'pariwisata/Detail_pariwisata/addUlasan/$1';
+
+$route['admin'] = 'admin/login';
