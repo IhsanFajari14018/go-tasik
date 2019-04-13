@@ -43,20 +43,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											</p>
 											<div class="d-inline"><small class="text-muted">Buka: <?php echo $d->buka; ?></small></div>
 											<div class="d-inline mx-2"><small class="text-muted">|</small></div>
-											<div class="d-inline"><small class="text-muted">Harga mulai dari: Rp <?php echo $d->harga_terendah; ?>,-/porsi</small></div>
+
+											<!-- give condition -->
+											<?php if( ($d->kategori == "gunung") || ($d->kategori == "kolam-renang") || ($d->kategori == "danau") ||
+											($d->kategori == "air-terjun-dan-sungai") || ($d->kategori == "pantai") || ($d->kategori == "wisata-lainnya") ||
+											($d->kategori == "kolam-renang") ){ ?>
+												<?php if($d->harga_terendah == NULL){ ?>
+													<div class="d-inline"><small class="text-muted">Tiket masuk gratis!</small></div>
+												<?php }else{ ?>
+													<div class="d-inline"><small class="text-muted">Harga tiket mulai dari: Rp <?php echo $d->harga_terendah; ?>,-/orang</small></div>
+												<?php } ?>
+											<?php }else{ ?>
+												<div class="d-inline"><small class="text-muted">Harga mulai dari: Rp <?php echo $d->harga_terendah; ?>,-/porsi</small></div>
+											<?php } ?>
 										</div>
 									</div>
 								</div>
 								<div class="card-footer w-100 text-muted inline-block ">
 									<div class="d-inline"><a href=<?php echo $d->url_map; ?> target="_blank"><i class="fa fa-map-marker"></i><?php echo $d->alamat; ?></a></div>
-									<?php
-									$rating = "";
+									
+									<!-- give condition -->
+									<?php $rating = "";
 									if($d->rating==0){
 										$rating = "-";
 									}else{
 										$rating = substr($d->rating,0,3);
-									}
-									?>
+									} ?>
 									<div class="float-right">Rating: <span class="text-warning"> <?php echo $rating; ?> </span></div>
 								</div>
 							</div>

@@ -56,7 +56,21 @@ class Pariwisata extends CI_Controller {
 			$data["tipe_pariwisata"] = 'kuliner';
 		}
 
+		// Data Tiket
+		$result = $this->m_pariwisata->getTipeTiket($id);
+		if($result->num_rows() >= 2 ){
+			$data["hasWeekDayEnd"] = TRUE;
+		}else{
+			$data["hasWeekDayEnd"] = FALSE;
+		}
+		$data["data_tiket"] = $result->result();
+
 		$this->load->view("admin/fitur/info_pariwisata", $data);
+	}
+
+	public function testTiket($id){
+		$result = $this->m_pariwisata->testing($id);
+		echo $result["hasWeekDayEnd"];
 	}
 
 	/*

@@ -46,34 +46,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<!-- More Desc. -->
 				<div class="row featurette mt-2">
 					<div class="col-md-5">
-						<h5 class="featurette-heading"><span class="text-muted">Lokasi</span></h5>
+						<h5 class="featurette-heading"><span class="text-muted font-weight-bolder">Lokasi</span></h5>
 						<a href="<?php echo $detail_pariwisata->url_map; ?>" target="_blank">
 							<i class="fa fa-map-marker"></i>
 							<?php echo $detail_pariwisata->alamat; ?>
 						</a>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<?php if($tipe_pariwisata=='wisata'){ ?>
-							<?php $harga = $detail_pariwisata->harga_terendah;
-							if($harga==NULL){
-								$harga = "GRATIS";
-							}else{
-								$harga = " ".$detail_pariwisata->harga_terendah.",- /org";
-							}?>
-							<h5 class="featurette-heading"><span class="text-muted">Harga</span></h5>
-							<p class="lead mb-0">Tiket: <?php echo $harga; ?> </p>
+							<?php if($hasWeekDayEnd){ ?>
+								<h5 class="featurette-heading"><span class="text-muted font-weight-bolder">Harga</span></h5>
+								<?php foreach ($data_tiket as $p): ?>
+									<p class="lead mb-0"> <?php echo $p->nama.": ".$p->harga; ?> </p>
+								<?php endforeach; ?>
+							<?php }else{ ?>
+								<?php $harga = $detail_pariwisata->harga_terendah;
+								if($harga==NULL){
+									$harga = "GRATIS";
+								}else{
+									$harga = " ".$detail_pariwisata->harga_terendah.",- /org";
+								}?>
+								<h5 class="featurette-heading"><span class="text-muted font-weight-bolder">Harga</span></h5>
+								<p class="lead mb-0">Tiket: <?php echo $harga; ?> </p>
+							<?php } ?>
 						<?php } ?>
 					</div>
-					<div class="col-md-3">
-						<h5 class="featurette-heading"><span class="text-muted">Rating</span></h5>
-						<?php
-						$rating = "";
+					<div class="col-md-2">
+						<h5 class="featurette-heading"><span class="text-muted font-weight-bolder">Buka</span></h5>
+						<p class="lead mb-0"> <?php echo $detail_pariwisata->buka; ?> </p>
+					</div>
+					<div class="col-md-2">
+						<h5 class="featurette-heading"><span class="text-muted font-weight-bolder">Rating</span></h5>
+						<?php $rating = "";
 						if($detail_pariwisata->rating==0){
 							$rating = "Belum ada rating";
 						}else{
 							$rating = substr($detail_pariwisata->rating,0,3);
-						}
-						?>
+						} ?>
 						<p class="lead"><span class="text-warning font-weight-bold"><?php echo $rating; ?></span></p>
 					</div>
 				</div>
@@ -96,23 +105,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					<?php foreach($data_pariwisata as $d){ ?>
 
-						<?php if($d->nama!="Tiket"){ ?>
-							<div class="col-md-4">
-								<div class="card mb-4 shadow-sm">
-									<img src="<?php echo base_url($d->foto); ?>" class="img-fluid" alt="" style="height:200px; width:auto;">
-									<div class="card-body">
-										<h4 class="card-title"><?php echo $d->nama; ?></h4>
-										<?php if($tipe_pariwisata=='kuliner'){ ?>
-											<small class="text-muted"><?php echo $d->deskripsi; ?></small>
-											<p class="card-text">
-												Harga: <?php echo $d->harga; ?>,-/porsi
-											</p>
-										<?php } ?>
+						<div class="col-md-4">
+							<div class="card mb-4 shadow-sm">
+								<img src="<?php echo base_url($d->foto); ?>" class="img-fluid" alt="" style="height:200px; width:auto;">
+								<div class="card-body">
+									<h4 class="card-title"><?php echo $d->nama; ?></h4>
+									<?php if($tipe_pariwisata=='kuliner'){ ?>
+										<small class="text-muted"><?php echo $d->deskripsi; ?></small>
+										<p class="card-text">
+											Harga: <?php echo $d->harga; ?>,-/porsi
+										</p>
+									<?php } ?>
 
-									</div>
 								</div>
 							</div>
-						<?php } ?>
+						</div>
 
 					<?php } ?>
 

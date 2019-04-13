@@ -12,7 +12,7 @@
       <i class="fas fa-user-circle fa-fw"></i> Admin
     </a>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-      <div class="dropdown-divider"></div>
+      <!-- <div class="dropdown-divider"></div> -->
       <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
     </div>
   </li>

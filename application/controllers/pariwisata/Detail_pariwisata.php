@@ -19,8 +19,8 @@ class Detail_pariwisata extends CI_Controller {
 			show_404();
 		}
 
-		// Data menu, layanan, atau galeri
-		$result = $this->m_pariwisata->getDetailInformasiPariwisata($id);
+		// Data menu, layanan, atau galeri, tanpa TIKET
+		$result = $this->m_pariwisata->getDetailNoTiket($id);
 		$data["data_pariwisata"] = $result;
 
 		// Data Ulasan
@@ -34,6 +34,15 @@ class Detail_pariwisata extends CI_Controller {
 		}else{
 			$data["tipe_pariwisata"] = 'kuliner';
 		}
+
+		// Data Tiket
+		$result = $this->m_pariwisata->getTipeTiket($id);
+		if($result->num_rows() >= 2 ){
+			$data["hasWeekDayEnd"] = TRUE;
+		}else{
+			$data["hasWeekDayEnd"] = FALSE;
+		}
+		$data["data_tiket"] = $result->result();
 
 		$this->load->view("pariwisata/detail_pariwisata", $data);
 	}

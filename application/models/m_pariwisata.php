@@ -63,6 +63,11 @@ class m_pariwisata extends CI_Model {
     return $this->db->get_where("detail", ["fk_pariwisata" => $id])->result();
   }
 
+  public function getDetailNoTiket($id = null){
+    $this->db->not_like('nama', 'Tiket');
+    return $this->db->get_where("detail", ["fk_pariwisata" => $id])->result();
+  }
+
   /*
   * Method untuk mendapatkan data review kuliner
   */
@@ -90,6 +95,12 @@ class m_pariwisata extends CI_Model {
     $this->fk_pariwisata = $idPariwisata;
 
     return $this->db->insert("review", $this);
+  }
+
+  public function getTipeTiket($id){
+    $where = "fk_pariwisata='$id' AND nama='Tiket Weekday' OR nama='Tiket Weekend'";
+    $this->db->where($where);
+    return $this->db->get("detail");
   }
 
   /*

@@ -44,7 +44,9 @@
         <!-- END OF Description -->
 
         <!-- More Desc. -->
-        <div class="row featurette mt-2">
+        <div class="row featurette mt-3">
+
+          <!-- LOKASI -->
           <div class="col-md-5">
             <h5 class="featurette-heading"><span class="text-muted">Lokasi</span></h5>
             <a href="<?php echo $detail_pariwisata->url_map; ?>" target="_blank">
@@ -52,31 +54,47 @@
               <?php echo $detail_pariwisata->alamat; ?>
             </a>
           </div>
-          <div class="col-md-4">
+
+          <!-- HARGA -->
+          <div class="col-md-3">
             <?php if($tipe_pariwisata=='wisata'){ ?>
-              <?php $harga = $detail_pariwisata->harga_terendah;
-              if($harga==NULL){
-                $harga = "GRATIS";
-              }else{
-                $harga = " ".$detail_pariwisata->harga_terendah.",- /org";
-              }?>
-              <h5 class="featurette-heading"><span class="text-muted">Harga</span></h5>
-              <p class="lead mb-0">Tiket: <?php echo $harga; ?> </p>
+              <?php if($hasWeekDayEnd){ ?>
+                <h5 class="featurette-heading"><span class="text-muted">Harga</span></h5>
+                <?php foreach ($data_tiket as $p): ?>
+                  <p class="lead mb-0"> <?php echo $p->nama.": ".$p->harga; ?> </p>
+                <?php endforeach; ?>
+              <?php }else{ ?>
+                <?php $harga = $detail_pariwisata->harga_terendah;
+                if($harga==NULL){
+                  $harga = "GRATIS";
+                }else{
+                  $harga = " ".$detail_pariwisata->harga_terendah.",- /org";
+                }?>
+                <h5 class="featurette-heading"><span class="text-muted">Harga</span></h5>
+                <p class="lead mb-0">Tiket: <?php echo $harga; ?> </p>
+              <?php } ?>
             <?php } ?>
           </div>
-          <div class="col-md-3">
+
+          <!-- JAM BUKA -->
+          <div class="col-md-2">
+            <h5 class="featurette-heading"><span class="text-muted">Buka</span></h5>
+            <p class="lead mb-0"> <?php echo $detail_pariwisata->buka; ?> </p>
+          </div>
+
+          <!-- RATING -->
+          <div class="col-md-2">
             <h5 class="featurette-heading"><span class="text-muted">Rating</span></h5>
-            <?php
-            $rating = "";
+            <?php $rating = "";
             if($detail_pariwisata->rating==0){
               $rating = "Belum ada rating";
             }else{
               $rating = substr($detail_pariwisata->rating,0,3);
-            }
-            ?>
+            } ?>
             <p class="lead"><span class="text-warning font-weight-bold"><?php echo $rating; ?></span></p>
           </div>
 
+          <!-- EDIT THIS  -->
           <div class="col-md-12 my-3">
             <button onclick="goToEdit()" type="button" class="btn btn-info btn-md btn-block">EDIT</button>
           </div>
@@ -92,7 +110,7 @@
         <div class="row">
           <div class="col-md-12 mt-5">
             <?php if($tipe_pariwisata=='wisata'){ ?>
-              <h2 class="mb-3">Galeri Objek Wisata</h2>
+              <h2 class="mb-3">Data Objek Wisata</h2>
             <?php }else{ ?>
               <h2 class="mb-3">MENU</h2>
             <?php } ?>

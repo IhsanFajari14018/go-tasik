@@ -26,8 +26,12 @@ class m_detail extends CI_Model {
 		$this->harga = $this->isNull($post['harga']);
 
 		$fileName = $this->uploadFotoPariwisata($fk); //Upload FILE + Nomori foto dgn ID
-		$pathFoto = "img\\Pariwisata\\".$fileName; //PATH untuk di DB
-		$this->foto = $pathFoto;
+		if($fileName == "-1"){
+			$this->foto = NULL;
+		}else{
+			$pathFoto = "img\\Pariwisata\\".$fileName; //PATH untuk di DB
+			$this->foto = $pathFoto;
+		}
 
 		$this->fk_pariwisata = $fk;
 
@@ -89,7 +93,7 @@ class m_detail extends CI_Model {
 		if ($this->upload->do_upload('foto')) {
 			return $this->upload->data("file_name"); //nama file + jpg nya
 		}else{
-			return "default.jpg";
+			return "-1";
 		}
 	}
 
