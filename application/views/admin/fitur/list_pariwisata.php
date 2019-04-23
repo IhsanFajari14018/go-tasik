@@ -16,8 +16,6 @@
 
 			<div class="container-fluid">
 
-				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
-
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
@@ -53,7 +51,7 @@
 												<?php echo $d->nama ?>
 											</td>
 											<td>
-												<?php echo substr($d->deskripsi,0,100)." ..." ?>
+												<?php echo substr($d->deskripsi,0,50)." ..." ?>
 											</td>
 											<td>
 												<?php echo $d->alamat ?>
@@ -81,10 +79,10 @@
 													<i class="fas fa-info-circle"></i>
 													Info
 												</a>
-												<a href="<?php echo site_url('admin/Detail/add/'.$d->id_pariwisata) ?>" class="btn btn-small text-success">
+												<!-- <a href="<?php //echo site_url('admin/Detail/add/'.$d->id_pariwisata) ?>" class="btn btn-small text-success">
 													<i class="fas fa-plus-circle"></i>
 													Add
-												</a>
+												</a> -->
 												<a href="<?php echo site_url('admin/pariwisata/edit/'.$d->id_pariwisata) ?>" class="btn btn-small">
 													<i class="fas fa-edit"></i>
 													Edit

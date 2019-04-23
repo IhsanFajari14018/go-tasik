@@ -18,6 +18,9 @@ class m_detail extends CI_Model {
 		return $this->db->get_where("detail", ['id_detail' => $id])->row();
 	}
 
+	/*
+	* Method untuk menyimpan detail pariwisata baru
+	*/
 	public function save($fk){
 		$post = $this->input->post();
 
@@ -47,6 +50,17 @@ class m_detail extends CI_Model {
 		return $this->db->delete("detail");
 	}
 
+	/*
+	* Method untuk menghapus foto detail dari directory
+	*/
+	private function deleteImage($id){
+		$detail = $this->getById($id);
+		unlink($detail->foto);
+	}
+
+	/*
+	* Method untuk memperbaharui data detail dari pariwisata
+	*/
 	public function update($id, $fk){
 		$post = $this->input->post();
 
@@ -65,11 +79,6 @@ class m_detail extends CI_Model {
 		$this->db->where('id_detail',$id);
 		$this->db->update("detail", $this);
 	}
-
-
-	/*
-	############################ PRIVATE METHOD #############################
-	*/
 
 	/*
 	* Method untuk upload Foto
@@ -97,13 +106,7 @@ class m_detail extends CI_Model {
 		}
 	}
 
-	/*
-	* Method untuk menghapus foto dari directory
-	*/
-	private function deleteImage($id){
-		$detail = $this->getById($id);
-		unlink($detail->foto);
-	}
+
 
 	/*
 	* Method untuk memberi value NULL jika memang kosong

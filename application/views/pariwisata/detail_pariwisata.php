@@ -210,124 +210,84 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="col-md-12 mt-5">
 						<h3 class="text-center mb-4">Rekomendasi Pariwisata</h3>
 					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							<a href="#">
-								<img src="https://3.bp.blogspot.com/-cgo2nXrKm20/V1tBZwmAAnI/AAAAAAAACkI/amCb3eV6TZY8lJvxvHnqokKcs4I9ogJ0gCLcB/s320/Tempat%2BPenjual%2BBaso%2BEnak%2Bdi%2BTasikmalaya.jpg" class="img-fluid" alt="" style="height:191.797px; width:100%;">
-							</a>
-							<div class="card-body">
-								<h4 class="card-title">Mie Bakso Laksana</h4>
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
+
+					<!-- loop -->
+					<?php foreach ($daftar_rekomendasi as $d ) { ?>
+						<div class="col-md-4">
+							<div class="card mb-4 shadow-sm">
+								<a href="<?php echo site_url("pariwisata/detail/".$d->id_rekomendasi); ?>">
+									<img src="<?php echo base_url($d->foto); ?>" class="img-fluid" alt="" style="height:200px; width:350px;">
+								</a>
+								<div class="card-body">
+									<h4 class="card-title"> <?php echo $d->nama; ?> </h4>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							<a href="#">
-								<img src="https://c1.staticflickr.com/9/8516/8574339730_2330e4a7bc_b.jpg" class="img-fluid" alt="">
-							</a>
-							<div class="card-body">
-								<h4 class="card-title">Kampung Naga</h4>
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							<a href="#">
-								<img src="https://mytrip123.com/wp-content/uploads/2018/11/pantai-cipatujah.jpg" class="img-fluid" alt="">
-							</a>
-							<div class="card-body">
-								<h4 class="card-title">Pantai Cipatujah</h4>
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
+					<?php } ?>
+
 				</div>
-				<!-- END Recomendation Section -->
+				<!-- END OF Recomendation Section -->
 
 			</div>
+			<!-- END OF DETAIL PARIWISATA -->
 		</div>
-		<!-- END OF LIST OBJEK WISATA -->
-	</div>
 
-</main>
+	</main>
 
 
-<div class="container">
-	<div class="row">
-		<div class="col">
-			<p class="float-right">
-				<a href="#">Back to top</a>
-			</p>
-		</div>
-	</div>
-</div>
-
-
-<footer class="text-muted bg-dark my-0 ">
 	<div class="container">
-		<div class="row mb-2">
-			<div class="col-md-4 text-light mt-3">
-				<p>ABOUT THIS</p>
-				<p>Go-Tasik is an information recomendation system in tourism.</p>
-			</div>
-			<div class="col-md-3 text-light mt-3">
-			</div>
-			<div class="col-md-5 text-light mt-3">
-				<p>CONTACT US</p>
-				<div class="row"><div class="col">
-					<i class="fa fa-map-marker"></i> Perum Cisalak Jl. Raya Nusa Indah Blok 4 No.11
-				</div></div>
-				<div class="row"><div class="col">
-					<i class="fa fa-phone"></i> <a href="whatsapp://send?text=Hai%2C%20Ihsan!" class="text-light">0822-4027-0827</a>
-				</div></div>
-				<div class="row"><div class="col">
-					<i class="fa fa-envelope-o"></i> <a href="mailto:ihsan.fajari@gmail.com" class="text-light">ihsan.fajari@gmail.com</a>
-				</div></div>
-			</div>
-		</div>
-
 		<div class="row">
-			<div class="col-md-12 text-center my-1 mt-4">
-				<p>Copyright &copy; 2019 Go-Tasik</p>
+			<div class="col">
+				<p class="float-right">
+					<a href="#">Back to top</a>
+				</p>
 			</div>
 		</div>
 	</div>
-</footer>
 
-<!-- SCRIPTS -->
-<!-- JQuery -->
-<script type="text/javascript" src="<?php echo base_url();?>/lib/js/jquery-3.3.1.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="<?php echo base_url();?>/lib/js/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="<?php echo base_url();?>/lib/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="<?php echo base_url();?>/lib/js/mdb.js"></script>
-<!-- MDBootstrap Datatables JS -->
-<script type="text/javascript" src="<?php echo base_url();?>/lib/js/addons/datatables.min.js"></script>
 
-</html>
+	<footer class="text-muted bg-dark my-0 ">
+		<div class="container">
+			<div class="row mb-2">
+				<div class="col-md-4 text-light mt-3">
+					<p>ABOUT THIS</p>
+					<p>Go-Tasik is an information recomendation system in tourism.</p>
+				</div>
+				<div class="col-md-3 text-light mt-3">
+				</div>
+				<div class="col-md-5 text-light mt-3">
+					<p>CONTACT US</p>
+					<div class="row"><div class="col">
+						<i class="fa fa-map-marker"></i> Perum Cisalak Jl. Raya Nusa Indah Blok 4 No.11
+					</div></div>
+					<div class="row"><div class="col">
+						<i class="fa fa-phone"></i> <a href="whatsapp://send?text=Hai%2C%20Ihsan!" class="text-light">0822-4027-0827</a>
+					</div></div>
+					<div class="row"><div class="col">
+						<i class="fa fa-envelope-o"></i> <a href="mailto:ihsan.fajari@gmail.com" class="text-light">ihsan.fajari@gmail.com</a>
+					</div></div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12 text-center my-1 mt-4">
+					<p>Copyright &copy; 2019 Go-Tasik</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- SCRIPTS -->
+	<!-- JQuery -->
+	<script type="text/javascript" src="<?php echo base_url();?>/lib/js/jquery-3.3.1.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="<?php echo base_url();?>/lib/js/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="<?php echo base_url();?>/lib/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="<?php echo base_url();?>/lib/js/mdb.js"></script>
+	<!-- MDBootstrap Datatables JS -->
+	<script type="text/javascript" src="<?php echo base_url();?>/lib/js/addons/datatables.min.js"></script>
+
+	</html>
 </body>

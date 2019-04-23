@@ -2,8 +2,6 @@
 
 class m_admin extends CI_Model {
 
-	private $_table = "berita";
-
 	public $nama = "";
 
 	public function rules(){
@@ -43,6 +41,9 @@ class m_admin extends CI_Model {
 		return $this->db->get_where("daftar_pariwisata", ['id_pariwisata' => $id])->row();
 	}
 
+	/*
+	* Method untuk menambah pariwisata baru
+	*/
 	public function save(){
 		$post = $this->input->post();
 		//$this->id_berita = uniqid();
@@ -63,12 +64,15 @@ class m_admin extends CI_Model {
 		$this->db->insert("pariwisata", $this);
 	}
 
+	/*
+	* Method untuk formating foto & menyimpan foro pada direktori
+	*/
 	private function uploadFotoPariwisata($id){
 		$currName = $this->nama;
 		$new_name = $id." ".$currName;
 
 		$config['upload_path']	= './img/Pariwisata/';
-		$config['allowed_types']= 'gif|jpg|png';
+		$config['allowed_types']= 'gif|jpg|jpeg|png';
 		$config['file_name']		= $new_name;
 		$config['overwrite']		= true;
 		$config['max_size']			= 1024; // 1MB
@@ -84,24 +88,42 @@ class m_admin extends CI_Model {
 		}
 	}
 
+	/*
+	* Method ini dipakai ketika menambahkan foto baru dari pariwisata
+	* untuk menyisipkan nomor pada foto berdasarkan no id pariwisata,
+	* maka perlu dilakukan count dulu untuk mendapatkan nomor dari id terkini
+	*/
 	private function getLatestID(){
 		return $this->db->from("pariwisata")->count_all_results();
 	}
 
-	//
-
+	/*
+	* Method untuk menghapus data pariwisata
+	*/
 	public function delete($id) {
+		$this->deleteImage($id);
 		return $this->db->delete("pariwisata", array("id_pariwisata" => $id));
 	}
 
-	private function deleteFoto($id){
-		$portal = $this->getById($id);
-		if ($berita->foto != "default.jpg") {
-			$filename = explode(".", $berita->foto)[0];
-			return array_map('unlink', glob(FCPATH."upload/portal/$filename.*"));
-		}
+	/*
+	* Method untuk menghapus foto pariwisata dari directory
+	*/
+	private function deleteImage($id){
+		$pariwisata = $this->getDataByID($id);
+		unlink($pariwisata->foto);
 	}
 
+	// private function deleteFoto($id){
+	// 	$portal = $this->getById($id);
+	// 	if ($berita->foto != "default.jpg") {
+	// 		$filename = explode(".", $berita->foto)[0];
+	// 		return array_map('unlink', glob(FCPATH."upload/portal/$filename.*"));
+	// 	}
+	// }
+
+	/*
+	* Method untuk memperbaharui data pariwisata
+	*/
 	public function update($id){
 		$post = $this->input->post();
 
@@ -118,7 +140,6 @@ class m_admin extends CI_Model {
 			$fileName = $this->uploadFotoPariwisata($id); //Upload FILE + Nomori foto dgn ID
 			$pathFoto = "img\\Pariwisata\\".$fileName; //PATH untuk di DB
 			$this->foto = $pathFoto;
-			// $this->foto = $this->uploadFotoPariwisata($id);
 		} else {
 			$this->foto = $post["old_foto"];
 		}

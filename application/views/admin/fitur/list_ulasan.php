@@ -16,13 +16,8 @@
 
 			<div class="container-fluid">
 
-				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
-
 				<!-- DataTables -->
 				<div class="card mb-3">
-					<div class="card-header">
-						<a href="<?php echo site_url('admin/pariwisata/add') ?>"><i class="fas fa-plus"></i> Add New Pariwisata</a>
-					</div>
 					<div class="card-body">
 
 						<div class="table-responsive">
@@ -77,12 +72,12 @@
 												<?php if($d->ditampilkan == "1"){ ?>
 													<a onclick="sembunyikanConfirm('<?php echo site_url('admin/Ulasan/setStatusHidden/'.$d->id_review) ?>')" href="#!" class="btn btn-small text-warning">
 														<i class="fas fa-info-circle"></i>
-														Sembunyikan
+														Hide
 													</a>
 												<?php }else{ ?>
 													<a onclick="tampilkanConfirm('<?php echo site_url('admin/Ulasan/setStatusShown/'.$d->id_review) ?>')" href="#!" class="btn btn-small text-info">
 														<i class="fas fa-info-circle"></i>
-														Tampilkan
+														Show
 													</a>
 												<?php } ?>
 											</td>

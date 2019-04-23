@@ -79,68 +79,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="col-md-12 mt-5">
 						<h3 class="text-center mb-4">Rekomendasi Pariwisata</h3>
 					</div>
-					<!-- 1 -->
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							<a href="<?php echo site_url("pariwisata/detail_wisata"); ?>">
-								<img src="https://lh5.googleusercontent.com/p/AF1QipMlZx50XTvsdLrd7vRqjUqQI_G_kBkmDRWMH_e7=w408-h272-k-no" class="img-fluid" alt="">
-							</a>
-							<div class="card-body">
-								<h4 class="card-title">Lembah Gunung Galunggung</h4>
-								<p class="card-text">
-									Stratovolcano aktif dengan serangkaian tangga panjang menuju tepi kaldera &
-									pemandangan mengarah ke Kota Tasikmalaya. <a href="#">Info lebih lanjut...</a>
-								</p>
-								<div class="d-inline"><small class="text-muted">Buka: 04:00 - 21:00</small></div>
-								<div class="d-inline mx-2"><small class="text-muted">|</small></div>
-								<div class="d-inline"><small class="text-muted">Harga: Rp 5000,-/org</small></div>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
-									</div>
-									<!-- <small class="text-muted">9 mins</small> -->
+
+					<!-- loop -->
+					<?php foreach ($daftar_rekomendasi as $d ) { ?>
+						<div class="col-md-4">
+							<div class="card mb-4 shadow-sm">
+								<a href="<?php echo site_url("pariwisata/detail/".$d->id_rekomendasi); ?>">
+									<img src="<?php echo base_url($d->foto); ?>" class="img-fluid" alt="" style="height:200px; width:350px;">
+								</a>
+								<div class="card-body">
+									<h4 class="card-title"> <?php echo $d->nama; ?> </h4>
 								</div>
 							</div>
 						</div>
-					</div>
-					<!-- 2 -->
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							<a href="<?php echo site_url('pariwisata/detail_kuliner'); ?>">
-								<img src="<?php echo base_url('img/13410202016-0911-09180400780x390.JPG'); ?>" class="img-fluid" alt="">
-							</a>
-							<div class="card-body">
-								<h4 class="card-title">Mie Bakso Laksana</h4>
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- 3 -->
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							<a href="#">
-								<img src="https://mytrip123.com/wp-content/uploads/2018/11/pantai-cipatujah.jpg" class="img-fluid" alt="">
-							</a>
-							<div class="card-body">
-								<h4 class="card-title">Pantai Cipatujah</h4>
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
+					<?php } ?>
+
 				</div>
 			</div>
 		</div>

@@ -23,10 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-//$config['base_url'] = 'http://localhost/go-tasik/';
-$config['base_url'] = '//25.13.40.94/go-tasik/';
-//25.13.40.94
-//$config['base_url'] = 'http://'.$_SERVER['SERVER_NAME'].'/applicatio'
+$config['base_url'] = 'http://localhost/go-tasik/';
+// $config['base_url'] = '//25.13.40.94/go-tasik/';
+// $config['base_url'] = '//192.168.100.18/go-tasik/';
+// 25.13.40.94
+// $config['base_url'] = 'http://'.$_SERVER['SERVER_NAME'].'/applicatio'
 
 /*
 |--------------------------------------------------------------------------

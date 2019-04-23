@@ -9,6 +9,7 @@ class Home extends CI_Controller {
 	}
 
 	public function index()	{
-		$this->load->view('home');
+		$data["daftar_rekomendasi"] = $this->m_pariwisata->getDataRekomendasi();
+		$this->load->view('home',$data);
 	}
 }

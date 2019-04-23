@@ -18,6 +18,21 @@ class m_pariwisata extends CI_Model {
   }
 
   /*
+  * Method untuk mendapatkan data rekomendasi pariwisata
+  */
+  public function getDataRekomendasi(){
+    return $this->db->get("daftar_rekomendasi")->result();
+  }
+
+  /*
+  * Method untuk mendapatkan data rekomendasi pariwisata berdasarkan ID
+  */
+  public function getDataRekomendasiByID($id){
+    $this->db->where('id_pariwisata', $id);
+    return $this->db->get("daftar_rekomendasi")->result();
+  }
+
+  /*
   * Method untuk mencari pariwisata deari navbar search
   */
   public function getDataBySearch(){
@@ -63,7 +78,7 @@ class m_pariwisata extends CI_Model {
     return $this->db->get_where("detail", ["fk_pariwisata" => $id])->result();
   }
 
-  public function getDetailNoTiket($id = null){
+  public function getDetailWithoutTicket($id = null){
     $this->db->not_like('nama', 'Tiket');
     return $this->db->get_where("detail", ["fk_pariwisata" => $id])->result();
   }

@@ -51,7 +51,7 @@
       <div class="modal-body">Apakah Anda yakin akan menyembunyikan ulasan ini?</div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a id="btn-sembunyikan" class="btn btn-warning" href="#">Sembunyikan</a>
+        <a id="btn-sembunyikan" class="btn btn-warning" href="#"><span class="text-light">Hide</span></a>
       </div>
     </div>
   </div>
@@ -70,7 +70,7 @@
       <div class="modal-body">Apakah Anda yakin akan menampilkan ulasan ini?</div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a id="btn-tampilkan" class="btn btn-info" href="#">Tampilkan</a>
+        <a id="btn-tampilkan" class="btn btn-info" href="#">Show</a>
       </div>
     </div>
   </div>

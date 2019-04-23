@@ -88,6 +88,12 @@
 									<option value="kolam-renang">Kolam Renang</option>
 									<option value="pantai">Pantai</option>
 									<option value="wisata-lainnya">Wisata Lainnya</option>
+									<option disabled="disabled">-------------------------------------------------------------------------------------------------------------------------------------------------</option>
+									<option value="bubur-ayam">Bubur Ayam</option>
+									<option value="kupat-tahu">Kupat Tahu</option>
+									<option value="mie-bakso">Mie Bakso</option>
+									<option value="soto">Soto</option>
+									<option value="kuliner-lainnya">Kuliner Lainnya</option>
 								</select>
 								<div class="invalid-feedback">
 									<?php echo form_error('kategori') ?>

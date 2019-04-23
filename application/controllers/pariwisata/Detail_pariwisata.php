@@ -14,13 +14,13 @@ class Detail_pariwisata extends CI_Controller {
 		$result = $this->m_pariwisata->getDataByID($id);
 		$data["detail_pariwisata"] = $result;
 
-		// Kalau datanya ga ada, beri tahu bahwa page tidak ada.
+		// Kalau datanya ga ada, beri tau bahwa page tidak ada.
 		if (!$result) {
 			show_404();
 		}
 
 		// Data menu, layanan, atau galeri, tanpa TIKET
-		$result = $this->m_pariwisata->getDetailNoTiket($id);
+		$result = $this->m_pariwisata->getDetailWithoutTicket($id);
 		$data["data_pariwisata"] = $result;
 
 		// Data Ulasan
@@ -43,6 +43,10 @@ class Detail_pariwisata extends CI_Controller {
 			$data["hasWeekDayEnd"] = FALSE;
 		}
 		$data["data_tiket"] = $result->result();
+
+		// Data rekomendasi
+		$result = $this->m_pariwisata->getDataRekomendasiByID($id);
+		$data["daftar_rekomendasi"] = $result;
 
 		$this->load->view("pariwisata/detail_pariwisata", $data);
 	}
