@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title><?php echo $detail_pariwisata->nama; ?></title>
 </head>
 
-<body>
+<body id="top-section">
 	<!-- NAVBAR -->
 	<?php $this->load->view("_partials/navbar.php") ?>
 	<!-- END OF NAVBAR -->
@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				<!-- SETELAH MENGISI KOMENTAR -->
 				<?php if($this->session->success){?>
-					<div class="alert alert-success " role="alert">
+					<div class="alert alert-success" role="alert">
 						<?php echo $this->session->flashdata('success'); ?>
 					</div>
 				<?php } ?>
@@ -205,17 +205,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?php echo form_close(); ?>
 				<!-- END OF ISI KOMENTAR -->
 
+				<?php if($is_show){ ?>
+					<!-- Recomendation Section -->
+					<div class="row">
+						<div class="col-md-12 mt-5">
+							<h3 class="text-center mb-4">Rekomendasi Pariwisata</h3>
+						</div>
+
+						<!-- loop -->
+						<?php foreach ($daftar_rekomendasi as $d ) { ?>
+							<div class="col-md-4">
+								<div class="card mb-4 shadow-sm">
+									<a href="<?php echo site_url("pariwisata/detail/".$d->id_rekomendasi); ?>">
+										<img src="<?php echo base_url($d->foto); ?>" class="img-fluid" alt="" style="height:200px; width:350px;">
+									</a>
+									<div class="card-body">
+										<h4 class="card-title"> <?php echo $d->nama; ?> </h4>
+									</div>
+								</div>
+							</div>
+						<?php } ?>
+
+					</div>
+					<!-- END OF Recomendation Section -->
+				<?php } ?>
+
 				<!-- Recomendation Section -->
 				<div class="row">
 					<div class="col-md-12 mt-5">
-						<h3 class="text-center mb-4">Rekomendasi Pariwisata</h3>
+						<h3 class="text-center mb-4">Pariwisata Serupa</h3>
 					</div>
 
 					<!-- loop -->
-					<?php foreach ($daftar_rekomendasi as $d ) { ?>
+					<?php foreach ($daftar_pariwisataSerupa as $d ) { ?>
 						<div class="col-md-4">
 							<div class="card mb-4 shadow-sm">
-								<a href="<?php echo site_url("pariwisata/detail/".$d->id_rekomendasi); ?>">
+								<a href="<?php echo site_url("pariwisata/detail/".$d->id_pariwisata); ?>">
 									<img src="<?php echo base_url($d->foto); ?>" class="img-fluid" alt="" style="height:200px; width:350px;">
 								</a>
 								<div class="card-body">
@@ -231,20 +256,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<!-- END OF DETAIL PARIWISATA -->
 		</div>
-
 	</main>
 
-
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<p class="float-right">
-					<a href="#">Back to top</a>
-				</p>
-			</div>
-		</div>
-	</div>
-
+	<!-- Scroll to Top -->
+	<?php $this->load->view("_partials/scrolltop.php") ?>
 
 	<footer class="text-muted bg-dark my-0 ">
 		<div class="container">

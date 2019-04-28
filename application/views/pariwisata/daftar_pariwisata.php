@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Daftar Pariwisata</title>
 </head>
 
-<body>
+<body id="top-section">
 	<!-- NAVBAR -->
 	<?php $this->load->view("_partials/navbar.php") ?>
 	<!-- END OF NAVBAR -->
@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 								<div class="card-footer w-100 text-muted inline-block ">
 									<div class="d-inline"><a href=<?php echo $d->url_map; ?> target="_blank"><i class="fa fa-map-marker"></i><?php echo $d->alamat; ?></a></div>
-									
+
 									<!-- give condition -->
 									<?php $rating = "";
 									if($d->rating==0){
@@ -81,60 +81,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="col-md-12 mt-5">
 						<h3 class="text-center mb-4">Rekomendasi Pariwisata</h3>
 					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							<a href="#">
-								<img src="https://3.bp.blogspot.com/-cgo2nXrKm20/V1tBZwmAAnI/AAAAAAAACkI/amCb3eV6TZY8lJvxvHnqokKcs4I9ogJ0gCLcB/s320/Tempat%2BPenjual%2BBaso%2BEnak%2Bdi%2BTasikmalaya.jpg" class="img-fluid" alt="" style="height:191.797px; width:100%;">
-							</a>
-							<div class="card-body">
-								<h4 class="card-title">Mie Bakso Laksana</h4>
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
+					<!-- loop -->
+					<?php foreach ($daftar_rekomendasi as $d ) { ?>
+						<div class="col-md-4">
+							<div class="card mb-4 shadow-sm">
+								<a href="<?php echo site_url("pariwisata/detail/".$d->id_rekomendasi); ?>">
+									<img src="<?php echo base_url($d->foto); ?>" class="img-fluid" alt="" style="height:200px; width:350px;">
+								</a>
+								<div class="card-body">
+									<h4 class="card-title"> <?php echo $d->nama; ?> </h4>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							<a href="#">
-								<img src="https://c1.staticflickr.com/9/8516/8574339730_2330e4a7bc_b.jpg" class="img-fluid" alt="">
-							</a>
-							<div class="card-body">
-								<h4 class="card-title">Kampung Naga</h4>
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 shadow-sm">
-							<a href="#">
-								<img src="https://mytrip123.com/wp-content/uploads/2018/11/pantai-cipatujah.jpg" class="img-fluid" alt="">
-							</a>
-							<div class="card-body">
-								<h4 class="card-title">Pantai Cipatujah</h4>
-								<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. </p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
+					<?php } ?>
 
 				</div>
 			</div>
@@ -143,17 +102,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	</main>
 
-
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<p class="float-right">
-					<a href="#">Back to top</a>
-				</p>
-			</div>
-		</div>
-	</div>
-
+	<!-- Scroll to Top -->
+	<?php $this->load->view("_partials/scrolltop.php") ?>
 
 	<footer class="text-muted bg-dark my-0 ">
 		<div class="container">

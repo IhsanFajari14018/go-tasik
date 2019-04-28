@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Detail_pariwisata extends CI_Controller {
+
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("m_pariwisata");
@@ -44,9 +45,20 @@ class Detail_pariwisata extends CI_Controller {
 		}
 		$data["data_tiket"] = $result->result();
 
+		//Variable untuk menentukan perlu tidaknya ditampilkan rekomendasi pariwisata
+		$data["is_show"] = FALSE;
+
 		// Data rekomendasi
 		$result = $this->m_pariwisata->getDataRekomendasiByID($id);
 		$data["daftar_rekomendasi"] = $result;
+		if(count($result)>0){
+			$data["is_show"] = TRUE;
+		}
+
+		// Data pariwisata serupa
+		$kategori = $data["detail_pariwisata"]->kategori;
+		$result = $this->m_pariwisata->getDataByKategori($kategori);
+		$data["daftar_pariwisataSerupa"] = $result;
 
 		$this->load->view("pariwisata/detail_pariwisata", $data);
 	}

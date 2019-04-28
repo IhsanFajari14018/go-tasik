@@ -4,6 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class m_pariwisata extends CI_Model {
 
   /*
+  * Method untuk mendapatkan semua data pariwisata, termasuk ratingnya
+  */
+  public function getDataPariwisata(){
+    return $this->db->get("daftar_pariwisata")->result();
+  }
+
+  /*
   * Method untuk mendapatkan data kuliner
   */
   public function getDataKuliner(){
@@ -21,6 +28,7 @@ class m_pariwisata extends CI_Model {
   * Method untuk mendapatkan data rekomendasi pariwisata
   */
   public function getDataRekomendasi(){
+    $this->db->group_by("id_rekomendasi");
     return $this->db->get("daftar_rekomendasi")->result();
   }
 
@@ -46,7 +54,8 @@ class m_pariwisata extends CI_Model {
 	}
 
   /*
-  * Method untuk mencari pariwisata deari navbar search
+  * Method untuk mendapatkan informasi apakah pariwisata ini
+  * memiliki data 'tiket' atau tidak.
   */
   public function getTipePariwisata($id){
 		$this->db->like('nama', 'Tiket');

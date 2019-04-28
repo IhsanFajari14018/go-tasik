@@ -25,6 +25,9 @@
         <li class="nav-item">
           <a class="nav-link active" href="<?php echo site_url("about"); ?>">About</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<?php echo site_url("survei"); ?>">Survei</a>
+        </li>
       </ul>
     </div>
 

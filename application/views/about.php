@@ -20,11 +20,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="container">
 				<h1 class="jumbotron-heading white-text">Go-Tasik</h1>
 				<p class="lead white-text">
-					Go-Tasik is an information recomendation system in tourism around Tasikmalaya.
+					Go-Tasik adalah sebuah sistem informasi yang memberikan informasi rekomendasi berupa pariwisata di Tasikmalaya.
 				</p>
 				<hr>
 				<p class="lead white-text">
-					Version 0.7
+					Versi 1.0
 				</p>
 			</div>
 		</section>

@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>go-tasik - Rekomendasi Pariwisata di Tasikmalaya</title>
 </head>
 
-<body>
+<body id="top-section">
 	<!-- NAVBAR -->
 	<?php $this->load->view("_partials/navbar.php") ?>
 
@@ -101,16 +101,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	</main>
 
-	<!-- BACK TO TOP BUTTON -->
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<p class="float-right">
-					<a href="#">Back to top</a>
-				</p>
-			</div>
-		</div>
-	</div>
+	<!-- Scroll to Top -->
+	<?php $this->load->view("_partials/scrolltop.php") ?>
 
 	<footer class="text-muted bg-dark my-0 ">
 		<div class="container">

@@ -21,4 +21,10 @@
       <span>Ulasan</span>
     </a>
   </li>
+  <li class="nav-item <?php echo $this->uri->segment(2) == 'data survei' ? 'active': '' ?>">
+    <a class="nav-link" href="<?php echo site_url('survei/downloadDataSurvei') ?>">
+      <i class="fa fa-download"></i>
+      <span>Data Survei</span>
+    </a>
+  </li>
 </ul>
