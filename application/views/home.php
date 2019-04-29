@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- STYLING -->
 	<?php $this->load->view("_partials/head.php") ?>
 	<!-- END OF STYLING -->
-	<title>go-tasik - Rekomendasi Pariwisata di Tasikmalaya</title>
+	<title>go-tasik - Rekomendasi Pariwisata di Tasikmalaya 1</title>
 </head>
 
 <body id="top-section">
