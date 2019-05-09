@@ -68,11 +68,6 @@ class Pariwisata extends CI_Controller {
 		$this->load->view("admin/fitur/info_pariwisata", $data);
 	}
 
-	public function testTiket($id){
-		$result = $this->m_pariwisata->testing($id);
-		echo $result["hasWeekDayEnd"];
-	}
-
 	/*
 	* Method untuk menambahkan pariwisata
 	*/
@@ -119,22 +114,6 @@ class Pariwisata extends CI_Controller {
 		if ($this->m_admin->delete($id)) {
 			redirect(site_url('admin/parwisata'));
 		}
-	}
-
-	/*
-	* Method untuk menambahkan detail (informasi tambahan) pariwisata
-	*/
-	public function addDetail($id = null) {
-		$pariwisata = $this->m_admin;
-		$validation = $this->form_validation;
-		$validation->set_rules($pariwisata->rules());
-
-		if ($validation->run()) {
-			$pariwisata->save();
-			$this->session->set_flashdata('success', 'Berhasil disimpan');
-		}
-
-		$this->load->view("admin/fitur/add_pariwisata");
 	}
 
 }

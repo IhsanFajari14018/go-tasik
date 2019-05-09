@@ -43,14 +43,5 @@ class Daftar_pariwisata extends CI_Controller {
 		$data["daftar_pariwisata"] = $this->m_pariwisata->getDataBySearch();
 		$this->load->view('pariwisata/daftar_pariwisata',$data);
 	}
-
-	private function getTipe(){
-		$result = $this->m_pariwisata->getTipePariwisata($id);
-		if($result){
-			$data["tipe_pariwisata"] = 'wisata';
-		}else{
-			$data["tipe_pariwisata"] = 'kuliner';
-		}
-		return $data;
-	}
+	
 }

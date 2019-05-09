@@ -73,8 +73,4 @@ class Detail extends CI_Controller {
 		$this->load->view("admin/fitur/edit_detail", $data);
 	}
 
-	public function edit2($id = null, $fk = null){
-		echo $id." ".$fk;
-	}
-
 }

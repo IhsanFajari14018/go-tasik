@@ -2,8 +2,9 @@
 
 class m_admin extends CI_Model {
 
-	public $nama = "";
-
+	/*
+	* Method untuk menentukan aturan input form
+	*/
 	public function rules(){
 		return [
 			['field' => 'nama',
@@ -33,10 +34,16 @@ class m_admin extends CI_Model {
 		];
 	}
 
+	/*
+	* Method untuk mendapatkan seluruh data pariwisata
+	*/
 	public function getAll(){
 		return $this->db->get("pariwisata")->result();
 	}
 
+	/*
+	* Method untuk mendapatkan satu data pariwisata
+	*/
 	public function getDataByID($id){
 		return $this->db->get_where("daftar_pariwisata", ['id_pariwisata' => $id])->row();
 	}
@@ -61,7 +68,7 @@ class m_admin extends CI_Model {
 		$pathFoto = "img\\Pariwisata\\".$fileName; //PATH untuk di DB
 		$this->foto = $pathFoto;
 
-		$this->db->insert("pariwisata", $this);
+		return $this->db->insert("pariwisata", $this);
 	}
 
 	/*
@@ -110,16 +117,8 @@ class m_admin extends CI_Model {
 	*/
 	private function deleteImage($id){
 		$pariwisata = $this->getDataByID($id);
-		unlink($pariwisata->foto);
+		return unlink($pariwisata->foto);
 	}
-
-	// private function deleteFoto($id){
-	// 	$portal = $this->getById($id);
-	// 	if ($berita->foto != "default.jpg") {
-	// 		$filename = explode(".", $berita->foto)[0];
-	// 		return array_map('unlink', glob(FCPATH."upload/portal/$filename.*"));
-	// 	}
-	// }
 
 	/*
 	* Method untuk memperbaharui data pariwisata
@@ -145,6 +144,6 @@ class m_admin extends CI_Model {
 		}
 
 		$this->db->where('id_pariwisata',$id);
-		$this->db->update("pariwisata", $this);
+		return $this->db->update("pariwisata", $this);
 	}
 }

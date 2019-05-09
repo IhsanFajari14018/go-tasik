@@ -55,7 +55,6 @@ class m_survei extends CI_Model {
 		}
 
 		$this->data_survei = $strDataSurvei;
-		$this->tanggal = date("Y/m/d");
 
 		if ($isEmpty) {
 			$this->session->set_flashdata('failure', 'Maaf, Anda tidak bisa mengirimkan data survei yang kosong!');
@@ -67,6 +66,10 @@ class m_survei extends CI_Model {
 
 	}
 
+	/*
+	* Method untuk mendapatkan ID pariwisata
+	* Method ini digunakan dalam method addSurvei()
+	*/
 	private function getIdPariwisata($name){
 		$this->db->where('nama', $name);
 		return $this->db->get("pariwisata")->row();

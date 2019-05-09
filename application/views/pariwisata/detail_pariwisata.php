@@ -214,7 +214,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 						<!-- loop -->
 						<?php foreach ($daftar_rekomendasi as $d ) { ?>
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<div class="card mb-4 shadow-sm">
 									<a href="<?php echo site_url("pariwisata/detail/".$d->id_rekomendasi); ?>">
 										<img src="<?php echo base_url($d->foto); ?>" class="img-fluid" alt="" style="height:200px; width:350px;">
@@ -238,7 +238,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					<!-- loop -->
 					<?php foreach ($daftar_pariwisataSerupa as $d ) { ?>
-						<div class="col-md-4">
+						<div class="col-md-3">
 							<div class="card mb-4 shadow-sm">
 								<a href="<?php echo site_url("pariwisata/detail/".$d->id_pariwisata); ?>">
 									<img src="<?php echo base_url($d->foto); ?>" class="img-fluid" alt="" style="height:200px; width:350px;">
@@ -261,36 +261,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- Scroll to Top -->
 	<?php $this->load->view("_partials/scrolltop.php") ?>
 
-	<footer class="text-muted bg-dark my-0 ">
-		<div class="container">
-			<div class="row mb-2">
-				<div class="col-md-4 text-light mt-3">
-					<p>ABOUT THIS</p>
-					<p>Go-Tasik is an information recomendation system in tourism.</p>
-				</div>
-				<div class="col-md-3 text-light mt-3">
-				</div>
-				<div class="col-md-5 text-light mt-3">
-					<p>CONTACT US</p>
-					<div class="row"><div class="col">
-						<i class="fa fa-map-marker"></i> Perum Cisalak Jl. Raya Nusa Indah Blok 4 No.11
-					</div></div>
-					<div class="row"><div class="col">
-						<i class="fa fa-phone"></i> <a href="whatsapp://send?text=Hai%2C%20Ihsan!" class="text-light">0822-4027-0827</a>
-					</div></div>
-					<div class="row"><div class="col">
-						<i class="fa fa-envelope-o"></i> <a href="mailto:ihsan.fajari@gmail.com" class="text-light">ihsan.fajari@gmail.com</a>
-					</div></div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-12 text-center my-1 mt-4">
-					<p>Copyright &copy; 2019 Go-Tasik</p>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<!-- FOOTER -->
+	<?php $this->load->view("_partials/footer.php") ?>
 
 	<!-- SCRIPTS -->
 	<!-- JQuery -->

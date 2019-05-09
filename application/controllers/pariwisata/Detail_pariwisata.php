@@ -8,6 +8,9 @@ class Detail_pariwisata extends CI_Controller {
 		$this->load->model("m_pariwisata");
 	}
 
+	/*
+	*	Method untuk mendapatkan informasi lengkap dari suatu pariwisata
+	*/
 	public function getDetailPariwisata($id = null){
 		if (!isset($id)) show_404();
 
@@ -63,6 +66,9 @@ class Detail_pariwisata extends CI_Controller {
 		$this->load->view("pariwisata/detail_pariwisata", $data);
 	}
 
+	/*
+	* Method untuk memberi ulasan pada pariwisata tersebut
+	*/
 	public function addUlasan($id = null){
 		$service = $this->m_pariwisata;
 

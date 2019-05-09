@@ -35,6 +35,9 @@ class Ulasan extends CI_Controller {
 		}
 	}
 
+	/*
+	* Method untuk menampilkan data suatu ulasan ke public
+	*/
 	public function setStatusShown($id=null){
 		$status = 1;
 		$ulasan = $this->m_ulasan;
@@ -45,6 +48,9 @@ class Ulasan extends CI_Controller {
 		}
 	}
 
+	/*
+	* Method untuk menyembunyikan data suatu ulasan dari public
+	*/
 	public function setStatusHidden($id=null){
 		$status = 0;
 		$ulasan = $this->m_ulasan;

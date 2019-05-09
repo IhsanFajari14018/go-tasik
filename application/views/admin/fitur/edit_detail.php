@@ -2,21 +2,19 @@
 <html lang="en">
 
 <head>
-	<?php $this->load->view("admin/_partials/head.php") ?>
+	<?php $this->load->view("admin/_partials_dashboard/head.php") ?>
 </head>
 
 <body id="page-top">
 
-	<?php $this->load->view("admin/_partials/navbar.php") ?>
+	<?php $this->load->view("admin/_partials_dashboard/navbar.php") ?>
 	<div id="wrapper">
 
-		<?php $this->load->view("admin/_partials/sidebar.php") ?>
+		<?php $this->load->view("admin/_partials_dashboard/sidebar.php") ?>
 
 		<div id="content-wrapper">
 
 			<div class="container-fluid">
-
-				<?php $this->load->view("admin/_partials/back.php") ?>
 
 				<?php if ($this->session->flashdata('success')): ?>
 					<div class="alert alert-success" role="alert">
@@ -27,9 +25,9 @@
 				<!-- Card  -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<h4>Perbaharui Pariwisata</h4>
+						<h4>Perbaharui Data Detail</h4>
 						<div class="text-muted mt-3">
-							<span class="text-danger font-weight-bolder">*</span> required fields
+							<span class="text-danger font-weight-bolder">*</span> bagian yang harus diisi
 						</div>
 					</div>
 					<div class="card-body">
@@ -61,14 +59,14 @@
 							</div>
 
 							<div class="form-group text-center">
-								<input class="btn btn-success" type="submit" name="btn" value="Save" style="width:110px;"/>
+								<input class="btn btn-success" type="submit" name="btn" value="Simpan" style="width:110px;"/>
 							</div>
 						</form>
 
 					</div>
 
 					<div class="card-footer small text-muted">
-						<span class="text-danger font-weight-bolder">*</span> required fields
+						<span class="text-danger font-weight-bolder">*</span> bagian yang harus diisi
 					</div>
 
 
@@ -76,7 +74,7 @@
 				<!-- /.container-fluid -->
 
 				<!-- Sticky Footer -->
-				<?php $this->load->view("admin/_partials/footer.php") ?>
+				<?php $this->load->view("admin/_partials_dashboard/footer.php") ?>
 
 			</div>
 			<!-- /.content-wrapper -->
@@ -84,9 +82,9 @@
 		</div>
 		<!-- /#wrapper -->
 
-		<?php $this->load->view("admin/_partials/scrolltop.php") ?>
-		<?php $this->load->view("admin/_partials/modal.php") ?>
-		<?php $this->load->view("admin/_partials/js.php") ?>
+		<?php $this->load->view("admin/_partials_dashboard/scrolltop.php") ?>
+		<?php $this->load->view("admin/_partials_dashboard/modal.php") ?>
+		<?php $this->load->view("admin/_partials_dashboard/js.php") ?>
 
 	</body>
 

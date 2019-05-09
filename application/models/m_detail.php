@@ -2,10 +2,9 @@
 
 class m_detail extends CI_Model {
 
-	private $_table = "berita";
-
-	public $nama = "";
-
+	/*
+	* Method untuk menentukan aturan input form
+	*/
 	public function rules(){
 		return [
 			['field' => 'nama',
@@ -14,6 +13,9 @@ class m_detail extends CI_Model {
 		];
 	}
 
+	/*
+	* Method untuk mendapatkan data detail dari pariwisata
+	*/
 	public function getById($id){
 		return $this->db->get_where("detail", ['id_detail' => $id])->row();
 	}
@@ -38,7 +40,7 @@ class m_detail extends CI_Model {
 
 		$this->fk_pariwisata = $fk;
 
-		$this->db->insert("detail", $this);
+		return $this->db->insert("detail", $this);
 	}
 
 	/*
@@ -55,7 +57,7 @@ class m_detail extends CI_Model {
 	*/
 	private function deleteImage($id){
 		$detail = $this->getById($id);
-		unlink($detail->foto);
+		return unlink($detail->foto);
 	}
 
 	/*
@@ -77,7 +79,7 @@ class m_detail extends CI_Model {
 		}
 
 		$this->db->where('id_detail',$id);
-		$this->db->update("detail", $this);
+		return $this->db->update("detail", $this);
 	}
 
 	/*
@@ -93,9 +95,7 @@ class m_detail extends CI_Model {
 		$config['allowed_types']= 'gif|jpg|jpeg|png';
 		$config['file_name']		= $new_name;
 		$config['overwrite']		= true;
-		$config['max_size']			= 1024; // 1MB
-		// $config['max_width']= 1024;
-		// $config['max_height']= 768;
+		$config['max_size']			= 1024;
 
 		$this->load->library('upload', $config);
 
@@ -105,8 +105,6 @@ class m_detail extends CI_Model {
 			return "-1";
 		}
 	}
-
-
 
 	/*
 	* Method untuk memberi value NULL jika memang kosong

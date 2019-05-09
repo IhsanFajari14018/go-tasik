@@ -18,9 +18,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- ABOUT -->
 		<section class="jumbotron text-center teal">
 			<div class="container">
-				<h1 class="jumbotron-heading white-text">Go-Tasik</h1>
+				<h1 class="jumbotron-heading white-text"><span class="font-weight-bolder">go-tasik</span></h1>
 				<p class="lead white-text">
-					Go-Tasik adalah sebuah sistem informasi yang memberikan informasi rekomendasi berupa pariwisata di Tasikmalaya.
+					go-tasik adalah sebuah sistem informasi yang memberikan informasi rekomendasi berupa pariwisata di Tasikmalaya.
 				</p>
 				<hr>
 				<p class="lead white-text">
@@ -35,14 +35,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!-- PUSH CONTENT TO MIDDLE A BIT -->
 				</div>
 				<div class="col-md-3">
-					<img src="https://media.licdn.com/dms/image/C5103AQG61uR6e7OkTw/profile-displayphoto-shrink_200_200/0?e=1556755200&v=beta&t=P4gU6UhfQLOt3atflfv89K5pxlemYqTaScCwBio3Uxw" class="img-fluid rounded-circle">
+					<img src="<?php echo base_url('img/me.jpg')?>" class="img-fluid rounded-circle">
 
 				</div>
 				<div class="col-md-7">
 					<h2 class="mt-3">Ihsan Fajari</h2>
 					<p>
 						Memiliki visi untuk membuat Tasikmalaya lebih maju, dimulai dari sisi digital. Sistem informasi rekomendasi pariwisata ini diharapkan
-						dapat memudahkan pencarian dan perekomendasian dalam pariwisata di sekitar Tasikmalaya.
+						dapat memudahkan pencarian dan perekomendasian dalam pariwisata yang ada di Tasikmalaya.
 					</p>
 					<p><a class="btn btn-teal" href="https://linkedin.com/in/ihsanfajari/" target="_blank" role="button">More about me &raquo;</a></p>
 				</div>
@@ -61,36 +61,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 </div>
 
-<footer class="text-muted bg-dark my-0 ">
-	<div class="container">
-		<div class="row mb-2">
-			<div class="col-md-4 text-light mt-3">
-				<p>ABOUT THIS</p>
-				<p>Go-Tasik is an information recomendation system in tourism.</p>
-			</div>
-			<div class="col-md-3 text-light mt-3">
-			</div>
-			<div class="col-md-5 text-light mt-3">
-				<p>CONTACT US</p>
-				<div class="row"><div class="col">
-					<i class="fa fa-map-marker"></i> Perum Cisalak Jl. Raya Nusa Indah Blok 4 No.11
-				</div></div>
-				<div class="row"><div class="col">
-					<i class="fa fa-phone"></i> <a href="whatsapp://send?text=Hello%2C%20World!" class="text-light">0822-4027-0827</a>
-				</div></div>
-				<div class="row"><div class="col">
-					<i class="fa fa-envelope-o"></i> <a href="mailto:ihsan.fajari@gmail.com" class="text-light">ihsan.fajari@gmail.com</a>
-				</div></div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-12 text-center my-1 mt-4">
-				<p>Copyright &copy; 2019 Go-Tasik</p>
-			</div>
-		</div>
-	</div>
-</footer>
+<!-- FOOTER -->
+<?php $this->load->view("_partials/footer.php") ?>
 
 <!-- SCRIPTS -->
 <!-- JQuery -->

@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse mr-auto" id="navbarsExample08">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="navbar-brand" href="<?php echo base_url() ?>"><span class="font-weight-bolder">go-tasik</span></a>
+          <h4 class="navbar-brand mb-0 mr-5"><span class="font-weight-bolder">go-tasik</span></h4>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url() ?>">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="<?php echo base_url() ?>">Beranda <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,7 +23,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="<?php echo site_url("about"); ?>">About</a>
+          <a class="nav-link active" href="<?php echo site_url("about"); ?>">Tentang Kami</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="<?php echo site_url("survei"); ?>">Survei</a>

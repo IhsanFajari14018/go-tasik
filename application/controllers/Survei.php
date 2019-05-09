@@ -55,7 +55,6 @@ class Survei extends CI_Controller {
     foreach ($data as $d ) {
       $result = $result . $d->data_survei . PHP_EOL;
     }
-    echo $result;
 
     $data = $result;
     if(write_file('./file/data_survei.dat', $data)){

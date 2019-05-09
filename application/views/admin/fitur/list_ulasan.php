@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-	<?php $this->load->view("admin/_partials/head.php") ?>
+	<?php $this->load->view("admin/_partials_dashboard/head.php") ?>
 </head>
 
 <body id="page-top">
 
-	<?php $this->load->view("admin/_partials/navbar.php") ?>
+	<?php $this->load->view("admin/_partials_dashboard/navbar.php") ?>
 	<div id="wrapper">
 
-		<?php $this->load->view("admin/_partials/sidebar.php") ?>
+		<?php $this->load->view("admin/_partials_dashboard/sidebar.php") ?>
 
 		<div id="content-wrapper">
 
@@ -94,7 +94,7 @@
 			<!-- /.container-fluid -->
 
 			<!-- Sticky Footer -->
-			<?php $this->load->view("admin/_partials/footer.php") ?>
+			<?php $this->load->view("admin/_partials_dashboard/footer.php") ?>
 
 		</div>
 		<!-- /.content-wrapper -->
@@ -103,9 +103,9 @@
 	<!-- /#wrapper -->
 
 
-	<?php $this->load->view("admin/_partials/scrolltop.php") ?>
-	<?php $this->load->view("admin/_partials/modal.php") ?>
-	<?php $this->load->view("admin/_partials/js.php") ?>
+	<?php $this->load->view("admin/_partials_dashboard/scrolltop.php") ?>
+	<?php $this->load->view("admin/_partials_dashboard/modal.php") ?>
+	<?php $this->load->view("admin/_partials_dashboard/js.php") ?>
 
 
 	<script>

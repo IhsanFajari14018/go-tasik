@@ -87,6 +87,10 @@ class m_pariwisata extends CI_Model {
     return $this->db->get_where("detail", ["fk_pariwisata" => $id])->result();
   }
 
+  /*
+  * Method untuk mendapatkan informasi layanan, menu, & galeri yang dimiliki
+  * pariwisata ini tanpa menampilkan data yang bernama 'Tiket'.
+  */
   public function getDetailWithoutTicket($id = null){
     $this->db->not_like('nama', 'Tiket');
     return $this->db->get_where("detail", ["fk_pariwisata" => $id])->result();
@@ -103,7 +107,7 @@ class m_pariwisata extends CI_Model {
   /*
   * Method untuk menambahkan ulasan untuk suatu pariwisata
   */
-  public function addDataReview($idPariwisata){
+  public function addDataReview($id){
     $post = $this->input->post();
 
     // Data Pemberi Ulasan
@@ -116,11 +120,15 @@ class m_pariwisata extends CI_Model {
     $this->tanggal = date("Y/m/d");
     $this->ditampilkan = 0;
     $this->rating = $post["rating"];
-    $this->fk_pariwisata = $idPariwisata;
+    $this->fk_pariwisata = $id;
 
     return $this->db->insert("review", $this);
   }
 
+  /*
+  * Method untuk mendapatkan info detail dari tiket.
+  * Periksa apakah tiketnya memiliki klasifikasi tiket weekday weekend
+  */
   public function getTipeTiket($id){
     $where = "fk_pariwisata='$id' AND nama='Tiket Weekday' OR nama='Tiket Weekend'";
     $this->db->where($where);
