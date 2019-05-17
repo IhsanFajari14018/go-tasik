@@ -169,4 +169,37 @@ class m_pariwisata extends CI_Model {
     $this->db->where('email', $email);
     return $this->db->get("user")->row();
   }
+
+
+  /*
+  * Method untuk mendapatkan data wisata
+  */
+  public function getNDataWisata($limit, $start){
+    // $this->db->limit($limit, 10);
+    $this->db->limit($limit, $start);
+    return $this->db->get("objek_wisata")->result();
+  }
+
+  /*
+  * Method untuk mendapatkan jumlah data wisata
+  */
+  public function nDataWisata(){
+    return $this->db->count_all("objek_wisata");
+  }
+
+  /*
+  * Method untuk mendapatkan data kuliner
+  */
+  public function getNDataKuliner($limit, $start){
+    // $this->db->limit($limit, 10);
+    $this->db->limit($limit, $start);
+    return $this->db->get("wisata_kuliner")->result();
+  }
+
+  /*
+  * Method untuk mendapatkan jumlah data kuliner
+  */
+  public function nDataKuliner(){
+    return $this->db->count_all("wisata_kuliner");
+  }
 }

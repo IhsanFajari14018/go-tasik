@@ -26,4 +26,12 @@ class m_ulasan extends CI_Model {
 		$this->db->where('id_review',$id);
 		return $this->db->update("review", $this);
 	}
+
+	/*
+  * Method untuk menghapus data ulasan karena
+	* pariwisatanya telah dihapus
+  */
+	public function deleteByPariwisata($fk) {
+		return $this->db->delete("review", array("fk_pariwisata" => $fk));
+	}
 }

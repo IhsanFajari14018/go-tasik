@@ -8,6 +8,7 @@ class Pariwisata extends CI_Controller {
 		parent::__construct();
 		$this->load->model("m_admin");
 		$this->load->model("m_pariwisata");
+		$this->load->model("m_ulasan");
 		$this->load->library('form_validation');
 
 		//If not login, cannot access this.
@@ -112,6 +113,8 @@ class Pariwisata extends CI_Controller {
 		if (!isset($id)) show_404();
 
 		if ($this->m_admin->delete($id)) {
+			//hapus juga ulasannya
+			$this->m_ulasan->deleteByPariwisata($id);
 			redirect(site_url('admin/parwisata'));
 		}
 	}

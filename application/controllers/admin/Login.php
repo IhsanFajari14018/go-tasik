@@ -28,6 +28,7 @@ class Login extends CI_Controller{
       $this->setLoginSession();
       redirect('admin/pariwisata');
     }else{
+      $this->session->set_flashdata('wrong', 'Password salah!');
       redirect('admin/login');
     }
   }

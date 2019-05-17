@@ -64,10 +64,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								if($harga==NULL){
 									$harga = "GRATIS";
 								}else{
-									$harga = " ".$detail_pariwisata->harga_terendah.",- /org";
+									$harga = $detail_pariwisata->harga_terendah;
 								}?>
 								<h5 class="featurette-heading"><span class="text-muted font-weight-bolder">Harga</span></h5>
-								<p class="lead mb-0">Tiket: <?php echo $harga; ?> </p>
+								<p class="lead mb-0">
+									Tiket:
+									<span id="tiket"><?php echo $harga; ?></span>,-
+									/orang
+								</p>
 							<?php } ?>
 						<?php } ?>
 					</div>
@@ -103,6 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					</div>
 
+					<?php $id=0;?>
 					<?php foreach($data_pariwisata as $d){ ?>
 
 						<div class="col-md-4">
@@ -112,8 +117,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<h4 class="card-title"><?php echo $d->nama; ?></h4>
 									<?php if($tipe_pariwisata=='kuliner'){ ?>
 										<small class="text-muted"><?php echo $d->deskripsi; ?></small>
-										<p class="card-text">
-											Harga: <?php echo $d->harga; ?>,-/porsi
+										<p class="card-text rupiah">
+											Harga:
+											<span id="rp<?php echo $id;?>"><?php echo $d->harga; ?></span>,-
+											/porsi
 										</p>
 									<?php } ?>
 
@@ -121,6 +128,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 						</div>
 
+						<?php $id=$id+1; ?>
 					<?php } ?>
 
 				</div>
@@ -275,6 +283,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script type="text/javascript" src="<?php echo base_url();?>/lib/js/mdb.js"></script>
 	<!-- MDBootstrap Datatables JS -->
 	<script type="text/javascript" src="<?php echo base_url();?>/lib/js/addons/datatables.min.js"></script>
+	<!-- Rupiah -->
+	<script type="text/javascript" src="<?php echo base_url();?>/lib/js/rupiah.js"></script>
 
 	</html>
 </body>

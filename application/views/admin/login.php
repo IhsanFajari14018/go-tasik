@@ -24,8 +24,14 @@
   <div class="container" style="margin-top:160px">
     <div class="card card-login mx-auto">
       <div class="card-header">Login Admin</div>
-      <div class="card-body">
 
+      <?php if ($this->session->flashdata('wrong')): ?>
+      <div class="card-body text-center pb-0">
+        <h5 class="text-danger">Wrong Username or Password!</h5>
+      </div>
+      <?php endif; ?>
+
+      <div class="card-body">
         <?php echo form_open('admin/login/verifikasi'); ?>
         <div class="form-group">
           <div class="form-label-group">
@@ -48,18 +54,18 @@
 
         <div class="text-center">
           <br> <br>
-          <span> © <?php echo Date('Y') ." ". "Copyright"  ?></span>
+          <span> © <?php echo Date('Y') ." ". "Copyright Go-Tasik"  ?></span>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="<?php echo base_url(); ?> lib-admin/assets/jquery/jquery.min.js"></script>
-  <script src="<?php echo base_url(); ?> lib-admin/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo base_url(); ?>lib-admin/assets/jquery/jquery.min.js"></script>
+  <script src="<?php echo base_url(); ?>lib-admin/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="<?php echo base_url(); ?> lib-admin/assets/jquery-easing/jquery.easing.min.js"></script>
+  <script src="<?php echo base_url(); ?>lib-admin/assets/jquery-easing/jquery.easing.min.js"></script>
 
 </body>
 

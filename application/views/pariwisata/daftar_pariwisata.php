@@ -21,6 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row">
 
 					<!--LIST PARIWISATA -->
+					<?php $id=0;?>
 					<?php foreach($daftar_pariwisata as $d){ ?>
 
 						<!-- A card section -->
@@ -49,12 +50,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											($d->kategori == "air-terjun-dan-sungai") || ($d->kategori == "pantai") || ($d->kategori == "wisata-lainnya") ||
 											($d->kategori == "kolam-renang") ){ ?>
 												<?php if($d->harga_terendah == NULL){ ?>
-													<div class="d-inline"><small class="text-muted">Tiket masuk gratis!</small></div>
+													<div class="d-inline">
+														<small class="text-muted rupiah">
+															<span id="rp<?php echo $id;?>">Tiket masuk gratis!</span>
+														</small>
+													</div>
 												<?php }else{ ?>
-													<div class="d-inline"><small class="text-muted">Harga tiket mulai dari: Rp <?php echo $d->harga_terendah; ?>,-/orang</small></div>
+													<div class="d-inline">
+														<small class="text-muted rupiah">
+															Harga tiket mulai dari:
+															<span id="rp<?php echo $id;?>"><?php echo $d->harga_terendah; ?></span>,-
+															/orang
+														</small>
+													</div>
 												<?php } ?>
 											<?php }else{ ?>
-												<div class="d-inline"><small class="text-muted">Harga mulai dari: Rp <?php echo $d->harga_terendah; ?>,-/porsi</small></div>
+												<div class="d-inline">
+													<small class="text-muted rupiah">
+														Harga mulai dari:
+														<span id="rp<?php echo $id;?>"><?php echo $d->harga_terendah; ?></span>
+														,-/porsi
+													</small>
+												</div>
 											<?php } ?>
 										</div>
 									</div>
@@ -75,7 +92,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<!-- END OF A card section -->
 
+						<?php $id=$id+1; ?>
 					<?php } ?>
+
+					<!-- Pagination links -->
+					<div class="col-md-12">
+						<div class="float-right">
+							<h6 class="font-weight-bolder">
+								<?php echo $this->pagination->create_links(); ?>
+							</h6>
+						</div>
+					</div>
 
 					<!-- Recomendation Section -->
 					<div class="col-md-12 mt-5">
@@ -119,6 +146,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script type="text/javascript" src="<?php echo base_url();?>/lib/js/mdb.js"></script>
 	<!-- MDBootstrap Datatables JS -->
 	<script type="text/javascript" src="<?php echo base_url();?>/lib/js/addons/datatables.min.js"></script>
+	<!-- Rupiah -->
+	<script type="text/javascript" src="<?php echo base_url();?>/lib/js/rupiah.js"></script>
+
 
 </body>
 </html>

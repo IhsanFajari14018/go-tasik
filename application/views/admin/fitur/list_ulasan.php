@@ -102,11 +102,9 @@
 	</div>
 	<!-- /#wrapper -->
 
-
 	<?php $this->load->view("admin/_partials_dashboard/scrolltop.php") ?>
 	<?php $this->load->view("admin/_partials_dashboard/modal.php") ?>
 	<?php $this->load->view("admin/_partials_dashboard/js.php") ?>
-
 
 	<script>
 	function deleteConfirm(url){
@@ -123,7 +121,7 @@
 		$('#btn-tampilkan').attr('href', url);
 		$('#tampilkanModal').modal();
 	}
-</script>
+	</script>
 
 </body>
 

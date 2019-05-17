@@ -53,12 +53,6 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// $route['detail_kuliner/(:num)'] = 'pariwisata/Detail_kuliner/getDetailKuliner/$1';
-// $route['wisata-kuliner/(:any)'] = 'Wisata_kuliner/getKulinerByKategori/$1';
-//
-// $route['detail_wisata/(:num)'] = 'pariwisata/Detail_wisata/getDetailWisata/$1';
-// $route['objek-wisata/(:any)'] = 'Objek_wisata/getWisataByKategori/$1';
-
 // Lebih rapih
 $route['objek-wisata'] = 'pariwisata/Daftar_pariwisata/getObjekWisata';
 $route['wisata-kuliner'] = 'pariwisata/Daftar_pariwisata/getWisataKuliner';
