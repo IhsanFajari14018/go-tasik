@@ -56,6 +56,9 @@ $route['translate_uri_dashes'] = FALSE;
 // Lebih rapih
 $route['objek-wisata'] = 'pariwisata/Daftar_pariwisata/getObjekWisata';
 $route['wisata-kuliner'] = 'pariwisata/Daftar_pariwisata/getWisataKuliner';
+$route['objek-wisata/(:num)'] = 'pariwisata/Daftar_pariwisata/getObjekWisata/$1';
+$route['wisata-kuliner/(:num)'] = 'pariwisata/Daftar_pariwisata/getWisataKuliner/$1';
+
 
 $route['objek-wisata/(:any)'] = 'pariwisata/Daftar_pariwisata/getPariwisataByKategori/$1';
 $route['wisata-kuliner/(:any)'] = 'pariwisata/Daftar_pariwisata/getPariwisataByKategori/$1';

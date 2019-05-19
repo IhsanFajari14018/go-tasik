@@ -37,6 +37,7 @@ class m_pariwisata extends CI_Model {
   */
   public function getDataRekomendasiByID($id){
     $this->db->where('id_pariwisata', $id);
+    $this->db->group_by("id_rekomendasi");
     return $this->db->get("daftar_rekomendasi")->result();
   }
 
@@ -47,21 +48,21 @@ class m_pariwisata extends CI_Model {
     $post = $this->input->post();
     $search = $post["search"];
 
-		$this->db->like('nama', $search);
-		$this->db->or_like('alamat', $search);
-		$this->db->or_like('kategori', $search);
-		return $this->db->get('daftar_pariwisata')->result();
-	}
+    $this->db->like('nama', $search);
+    $this->db->or_like('alamat', $search);
+    $this->db->or_like('kategori', $search);
+    return $this->db->get('daftar_pariwisata')->result();
+  }
 
   /*
   * Method untuk mendapatkan informasi apakah pariwisata ini
   * memiliki data 'tiket' atau tidak.
   */
   public function getTipePariwisata($id){
-		$this->db->like('nama', 'Tiket');
+    $this->db->like('nama', 'Tiket');
     $this->db->where('fk_pariwisata', $id);
-		return $this->db->get('detail')->row();
-	}
+    return $this->db->get('detail')->row();
+  }
 
   /*
   * Method untuk mendapatkan data semua kuliner

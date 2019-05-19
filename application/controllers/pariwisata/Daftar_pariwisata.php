@@ -18,11 +18,11 @@ class Daftar_pariwisata extends CI_Controller {
 
 		// pagination configuration
 		$total_rows = $this->m_pariwisata->nDataKuliner();
-		$config['base_url'] = base_url().'pariwisata/Daftar_pariwisata/getWisataKuliner/';
+		$config['base_url'] = base_url().'wisata-kuliner/';
 		$config['total_rows'] = $total_rows;
 		$config['per_page'] = 4;
-		$config['uri_segment'] = 4;
-		$from = $this->uri->segment(4);
+		$config['uri_segment'] = 2;
+		$from = $this->uri->segment(2);
 		$this->pagination->initialize($config);
 
 		$data['daftar_pariwisata'] = $this->m_pariwisata->getNDataKuliner($config['per_page'], $from);
@@ -37,11 +37,11 @@ class Daftar_pariwisata extends CI_Controller {
 
 		// pagination configuration
 		$total_rows = $this->m_pariwisata->nDataWisata();
-		$config['base_url'] = base_url().'pariwisata/Daftar_pariwisata/getObjekWisata/';
+		$config['base_url'] = base_url().'objek-wisata/';
 		$config['total_rows'] = $total_rows;
 		$config['per_page'] = 4;
-		$config['uri_segment'] = 4;
-		$from = $this->uri->segment(4);
+		$config['uri_segment'] = 2;
+		$from = $this->uri->segment(2);
 		$this->pagination->initialize($config);
 
 		$data["daftar_pariwisata"] = $this->m_pariwisata->getNDataWisata($config['per_page'], $from);

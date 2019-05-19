@@ -77,7 +77,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</div>
 								</div>
 								<div class="card-footer w-100 text-muted inline-block ">
-									<div class="d-inline"><a href=<?php echo $d->url_map; ?> target="_blank"><i class="fa fa-map-marker"></i><?php echo $d->alamat; ?></a></div>
+									<div class="d-inline">
+										<a href=<?php echo $d->url_map; ?> target="_blank">
+											<i class="fa fa-map-marker"></i> <?php echo $d->alamat; ?>
+										</a>
+									</div>
 
 									<!-- give condition -->
 									<?php $rating = "";

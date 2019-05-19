@@ -54,6 +54,7 @@ class m_survei extends CI_Model {
 			$strDataSurvei = $strDataSurvei." ".$result->id_pariwisata;
 		}
 
+		$strDataSurvei = ltrim($strDataSurvei, 'start');
 		$this->data_survei = $strDataSurvei;
 
 		if ($isEmpty) {
