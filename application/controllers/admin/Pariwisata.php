@@ -115,7 +115,7 @@ class Pariwisata extends CI_Controller {
 		if ($this->m_admin->delete($id)) {
 			//hapus juga ulasannya
 			$this->m_ulasan->deleteByPariwisata($id);
-			redirect(site_url('admin/parwisata'));
+			redirect(site_url('admin/pariwisata'));
 		}
 	}
 

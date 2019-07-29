@@ -8,7 +8,7 @@ class Login extends CI_Controller{
     parent::__construct();
     $this->load->library('form_validation');
     $this->username = "goadmintasik";
-    $this->password = "gotas1k";
+    $this->password = '$2y$10$X3sujzzk6/ncN4/FtSqbx.69htAz927vNovymwNdJVr4aLr31ofB.';
   }
 
   public function index(){
@@ -24,7 +24,8 @@ class Login extends CI_Controller{
     $username = $post["username"];
     $password = $post["password"];
 
-    if(($username == $this->username) && ($password == $this->password)){
+    $decryptedPass = password_verify($password, $this->password);
+    if(($username == $this->username) && $decryptedPass){
       $this->setLoginSession();
       redirect('admin/pariwisata');
     }else{
